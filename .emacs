@@ -19,7 +19,7 @@
  '(inhibit-startup-screen t)
  '(safe-local-variable-values (quote ((c-file-offsets (arglist-intro . +) (arglist-close . 0)) (c-file-offsets (arglist-intro . ++) (arglist-close . 0)))))
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
- '(tab-width 4)
+ '(tab-width 4))
 
  ;; Make sure DEL key does what I want
  (when window-system
