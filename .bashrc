@@ -42,7 +42,7 @@ if [ "$PS1" ]; then
     alias emac="emacs"
     alias eamc="emacs"
     alias untar="tar xfz"
-	alias ls='ls --color=auto'
+    alias ls='ls --color=auto'
 	alias s='ls'
 	alias sl='ls'
 	alias sls='ls'
