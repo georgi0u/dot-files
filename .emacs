@@ -1,8 +1,9 @@
 (add-to-list `load-path "~/.emacs.d/")
-(add-to-list `load-path "~/.local_emacs.d/")
 (add-to-list `custom-theme-load-path "~/.emacs.d/themes/")
 
+;; Local Emacs Stuff
 (when (file-exists-p "~/.local_emacs") (load "~/.local_emacs"))
+(add-to-list `load-path "~/.local_emacs.d/")
 
 ;;;====Variable Customizations====
 (custom-set-variables
