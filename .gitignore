@@ -47,3 +47,5 @@ test/
 tmp/
 trash/
 .local_bash_rc
+.local_emacs.d
+.local_emacs

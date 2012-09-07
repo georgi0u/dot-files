@@ -1,9 +1,10 @@
 (add-to-list `load-path "~/.emacs.d/")
+(add-to-list `load-path "~/.local_emacs.d/")
 (add-to-list `custom-theme-load-path "~/.emacs.d/themes/")
-(add-to-list `load-path "~/.my_software/share/emacs/")
+
+(when (file-exists-p "~/.local_emacs") (load "~/.local_emacs"))
 
 ;;;====Variable Customizations====
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -22,12 +23,12 @@
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
  '(tab-width 4))
 
+;;=====Get back a line of code!====
+(menu-bar-mode 0)
+
  ;; Make sure DEL key does what I want
  (when window-system
    (normal-erase-is-backspace-mode 1))
-
- ;;=====Get back a line of code!====
- (menu-bar-mode 0)
 
  ;;=====Goto Line===================
  (global-set-key "\C-xg" 'goto-line)
@@ -110,43 +111,6 @@
 
  ;; ========== Prevent Emacs from making backup files ==========
  (setq make-backup-files nil) 
-
-
- ;; =========== C++ Awesomrey ==================
- (defun switch-source-file() 
-   "Switch from .h to .cxx in Pub-style directories" 
-   (interactive) 
-   (let ((myfile "")) 
-     (if (equal (substring buffer-file-name -4 nil) ".cxx") 
-         (progn (setq myfile (concat (substring buffer-file-name 0 -4) ".h")) 
-                (switch-to-buffer (file-name-nondirectory myfile)) 
-                (if (not buffer-file-name) 
-                    (find-alternate-file (concat "../include/" (file-name-nondirectory myfile))))) 
-       (if (equal (substring buffer-file-name -2 nil) ".h") 
-           (progn (setq myfile (concat (substring buffer-file-name 0 -2) ".cxx")) 
-                  (switch-to-buffer (file-name-nondirectory myfile)) 
-                  (if (not buffer-file-name) 
-                      (find-alternate-file (concat "../src/" (file-name-nondirectory myfile))))) 
-         (if (equal (substring buffer-file-name -8 nil) "Pintfile") 
-             (progn (setq myfile "Pubfile") 
-                    (switch-to-buffer (file-name-nondirectory myfile)) 
-                    (if (not buffer-file-name) 
-                        (find-alternate-file (file-name-nondirectory myfile)))) 
-           (if (equal (substring buffer-file-name -7 nil) "Pubfile") 
-               (progn (setq myfile "Pintfile") 
-                      (switch-to-buffer (file-name-nondirectory myfile)) 
-                      (if (not buffer-file-name) 
-                          (find-alternate-file (file-name-nondirectory myfile))))))) 
-       buffer-file-name))) 
-
- (global-set-key "\C-Xz" 'switch-source-file)
-
-
- ;; ======== p4 and pub ===================
- (load "pub")
- (load "p4")
- (add-hook 'pub-mode-hook 'turn-on-font-lock)
- (add-hook 'pint-mode-hook 'turn-on-font-lock)
 
  ;; ======== Markdown ===================
  (autoload 'markdown-mode "markdown-mode.el" 
