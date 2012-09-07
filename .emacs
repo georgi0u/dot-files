@@ -1,4 +1,5 @@
 (add-to-list `load-path "~/.emacs.d/")
+(add-to-list `custom-theme-load-path "~/.emacs.d/themes/")
 (add-to-list `load-path "~/.my_software/share/emacs/")
 
 ;;;====Variable Customizations====
