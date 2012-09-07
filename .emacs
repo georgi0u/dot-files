@@ -5,6 +5,9 @@
 (when (file-exists-p "~/.local_emacs") (load "~/.local_emacs"))
 (add-to-list `load-path "~/.local_emacs.d/")
 
+(load "less-css-mode")
+(load "markdown-mode")
+
 ;;;====Variable Customizations====
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
