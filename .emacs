@@ -59,14 +59,6 @@
   (xterm-register-default-colors)
   (tty-set-up-initial-frame-faces))
 
-(setq auto-mode-alist
-      (append
-       (list
-        '("\\.md" . markdown-mode)
-        '("\\.text" . markdown-mode)
-        '("\\.txt" . markdown-mode)
-        auto-mode-alist)))
-
 (add-hook 'c-mode-common-hook 'flyspell-prog-mode)
 (add-hook 'perl-mode-hook 'flyspell-prog-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
