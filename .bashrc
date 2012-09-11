@@ -29,7 +29,7 @@ function cd() {
 }
 
 if [ "$PS1" ]; then
-	set_prompt;
+    set_prompt;
     stty -ixon -ixoff    
     shopt -s checkwinsize
 
@@ -43,11 +43,11 @@ if [ "$PS1" ]; then
     alias eamc="emacs"
     alias untar="tar xfz"
     alias ls='ls --color=auto'
-	alias s='ls'
-	alias sl='ls'
-	alias sls='ls'
-	alias lsl='ls'
-	alias cd..='cd ..'
+    alias s='ls'
+    alias sl='ls'
+    alias sls='ls'
+    alias lsl='ls'
+    alias cd..='cd ..'
     alias ..="cd .."
     alias la="ls -al"
     alias ll="ls -l"
@@ -55,8 +55,9 @@ if [ "$PS1" ]; then
     alias grep="grep --color=auto"
     alias tailf="tail -f"        
     alias wls="watch -n.2 ls"
-	alias ssh="ssh -q"	   
+    alias ssh="ssh -q"	   
     alias sym="symlinks -v . | sort"
+    alias cat*="head -n -1 *"
 
     alias tm="(tmux && exit)"
     alias ta="(tmux attach -d && exit)"       
