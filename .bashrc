@@ -1,4 +1,4 @@
-LOCAL_OPTIONS=".local_bash_rc"
+LOCAL_OPTIONS="~/.local_bash_rc"
 
 function add_to_path () {
     [ -e $1 ] && [[ "${PATH}" =~ ":${1}:" ]] || export PATH=$PATH:$1;
@@ -37,6 +37,7 @@ if [ "$PS1" ]; then
     export EDITOR="emacs"
     export VISUAL="emacs"
     export TERM="xterm-256color"
+    export GREP_OPTIONS="--color=auto"
 
     alias eamcs="emacs"
     alias emac="emacs"
@@ -52,7 +53,6 @@ if [ "$PS1" ]; then
     alias la="ls -al"
     alias ll="ls -l"
     alias l="ls -l"
-    alias grep="grep --color=auto"
     alias tailf="tail -f"        
     alias wls="watch -n.2 ls"
     alias ssh="ssh -q"	   
