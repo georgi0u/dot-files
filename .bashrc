@@ -1,4 +1,4 @@
-LOCAL_OPTIONS="~/.local_bash_rc"
+LOCAL_OPTIONS=${HOME}"/.local_bash_rc"
 
 function add_to_path () {
     [ -e $1 ] && [[ "${PATH}" =~ ":${1}:" ]] || export PATH=$PATH:$1;
@@ -13,7 +13,7 @@ function add_to_python_path () {
 }
 
 function get_box_level_color() { echo "\[\e[1;32m\]"; }
-function get_dir_level_color() { echo "\[\e[1;36m\]"; }
+function get_dir_level_color() { echo "\[\e[0;36m\]"; }
 
 if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
 
