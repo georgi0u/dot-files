@@ -1,10 +1,12 @@
 (add-to-list `load-path "~/.emacs.d/")
-(add-to-list `custom-theme-load-path "~/.emacs.d/themes/")
+(when (>= emacs-major-version 24)
+  (add-to-list `custom-theme-load-path "~/.emacs.d/themes/"))
 
 ;; Local Emacs Stuff
 (when (file-exists-p "~/.local_emacs") (load "~/.local_emacs"))
 
-(load "less-css-mode")
+(when (>= emacs-major-version 24)
+  (load "less-css-mode"))
 (load "markdown-mode")
 
 ;;;====Variable Customizations====
@@ -84,18 +86,14 @@
   (loop for i from 1 to 5 do (next-line))
   )
 
-(define-key input-decode-map "\e\eOA" [(meta up)])
-(define-key input-decode-map "\e\eOB" [(meta down)])
-(define-key input-decode-map "\e\eOC" [(meta right)])
-(define-key input-decode-map "\e\eOD" [(meta left)])
-
-(global-set-key [(meta left)] 'hide-subtree)
-(global-set-key [(meta right)] 'show-subtree)
-(global-set-key [(meta up)] 'five-previous-lines)
-(global-set-key [(meta down)] 'five-next-lines)
-
-(global-set-key (kbd "C-M-n") 'five-next-lines)
-(global-set-key (kbd "C-M-p") 'five-previous-lines)
+(when (>= emacs-major-version 24)
+  (define-key input-decode-map "\e\eOA" [(meta up)])
+  (define-key input-decode-map "\e\eOB" [(meta down)])
+  (define-key input-decode-map "\e\eOC" [(meta right)])
+  (define-key input-decode-map "\e\eOD" [(meta left)])
+  (global-set-key (kbd "C-M-n") 'five-next-lines)
+  (global-set-key (kbd "C-M-p") 'five-previous-lines)
+  )
 
 ;; highlight brackets
 (show-paren-mode 1)
