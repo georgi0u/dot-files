@@ -41,8 +41,8 @@
 (global-set-key "\C-xFl" 'find-library)
 (global-set-key "\C-xFa" 'find-face-definition)
 
-;; Open a location quickly
-(global-set-key "\C-ca" nil)
+;; Mice
+(xterm-mouse-mode 1)
 
 ;; I don't have any lost love for the <insert> key, so disable it
 (global-set-key [insert] (lambda () (interactive)))
