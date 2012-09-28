@@ -17,6 +17,12 @@ function get_dir_level_color() { echo "\[\e[0;36m\]"; }
 
 if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
 
+function emailme() {
+    myemail=`whoami`"@factset.com"
+    filename=$1;
+    echo $1 | mutt -a "$1" -s "$1" $myemail;
+}
+
 function set_prompt() {
     box_color=`get_box_level_color`;
     dir_color=`get_dir_level_color`;
