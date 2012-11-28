@@ -16,13 +16,13 @@
  '(column-number-mode t)
  '(custom-enabled-themes (quote (tomorrow-night-bright)))
  '(custom-safe-themes (quote ("e439d894bf9406baf73056cf7e3c913ee5c794b6adadbbb9f614aebed0fd9ce7" "cf2bb5e8046ca363183c87e8d33932f2a76a3d705b9db2721631777bbce92968" "4870e6cb6f0a70c14ee73db30b69a8a1f08d6ec9a689c366e88636fb81e8022d" default)))
- '(global-linum-mode t)
+ '(global-linum-mode nil)
  '(gpm-mouse-mode nil)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(safe-local-variable-values (quote ((c-file-offsets (arglist-intro . +) (arglist-close . 0)) (c-file-offsets (arglist-intro . ++) (arglist-close . 0)))))
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
- '(tab-width 4))
+ '(tab-width 8))
 
 ;;=====Get back a line of code!====
 (menu-bar-mode 0)
@@ -144,3 +144,9 @@
 ;; ========== ediff ==========
 (setq ediff-split-window-function 'split-window-horizontally) 
 (setq ediff-merge-split-window-function 'split-window-horizontally)
+
+
+;; =========== auto mode list ================
+(add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.hpp\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
