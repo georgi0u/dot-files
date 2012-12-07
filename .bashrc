@@ -4,6 +4,10 @@ function add_to_path () {
     [ -e $1 ] && [[ "${PATH}" =~ ":${1}:" ]] || export PATH=$PATH:$1;
 }
 
+function prepend_to_path() {
+   [ -e $1 ] && [[ "${PATH}" =~ ":${1}:" ]] || export PATH=$1:$PATH;
+}
+
 function add_to_lib_path () {
     [ -e $1 ] && [[ "${LD_LIBRARY_PATH}" =~ ":${1}:" ]] || export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$1;
 }
@@ -17,12 +21,6 @@ function get_dir_level_color() { echo "\[\e[0;36m\]"; }
 
 if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
 
-function emailme() {
-    myemail=`whoami`"@factset.com"
-    filename=$1;
-    echo $1 | mutt -a "$1" -s "$1" $myemail;
-}
-
 function set_prompt() {
     box_color=`get_box_level_color`;
     dir_color=`get_dir_level_color`;
@@ -33,6 +31,7 @@ function cd() {
     builtin cd $@;
     set_prompt;
 }
+
 
 if [ "$PS1" ]; then
     set_prompt;
@@ -65,6 +64,6 @@ if [ "$PS1" ]; then
     alias sym="symlinks -v . | sort"
     alias cat*="head -n -1 *"
 
-    alias tm="(tmux && exit)"
-    alias ta="(tmux attach -d && exit)"       
+    alias ta="(tmux attach -d && exit)"
+    alias tm="(tmux -u new-session -d 'irssi' \; new-window -d \;  next-window \; attach && exit)"
 fi
