@@ -65,5 +65,5 @@ if [ "$PS1" ]; then
     alias cat*="head -n -1 *"
 
     alias ta="(tmux attach -d && exit)"
-    alias tm="(tmux -u new-session -d 'irssi' \; new-window -d \;  next-window \; attach && exit)"
+    alias tm="tmux"
 fi
