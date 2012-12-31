@@ -65,5 +65,5 @@ if [ "$PS1" ]; then
     alias cat*="head -n -1 *"
 
     alias ta="(tmux attach -d && exit)"
-    alias tm="tmux"
+    alias tm="tmux -u"
 fi
