@@ -64,6 +64,6 @@ if [ "$PS1" ]; then
     alias sym="symlinks -v . | sort"
     alias cat*="head -n -1 *"
 
-    alias ta="(tmux attach -d && exit)"
+    alias ta="(tmux -u attach -d && exit)"
     alias tm="tmux -u"
 fi
