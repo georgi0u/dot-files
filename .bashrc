@@ -1,4 +1,4 @@
-LOCAL_OPTIONS=${HOME}"/.local_bash_rc"
+LOCAL_OPTIONS=${HOME}"/.local_bashrc"
 
 function add_to_path () {
     [ -e $1 ] && [[ "${PATH}" =~ ":${1}:" ]] || export PATH=$PATH:$1;
