@@ -32,6 +32,9 @@ function cd() {
     set_prompt;
 }
 
+function ta() {
+    tmux -u attach -d || tmux -u;
+}
 
 if [ "$PS1" ]; then
     set_prompt;
@@ -58,12 +61,15 @@ if [ "$PS1" ]; then
     alias la="ls -al"
     alias ll="ls -l"
     alias l="ls -l"
-    alias tailf="tail -f"        
+    alias tailf="tail -f"
     alias wls="watch -n.2 ls"
-    alias ssh="ssh -q"	   
+    alias ssh="ssh -q"
     alias sym="symlinks -v . | sort"
     alias cat*="head -n -1 *"
 
-    alias ta="(tmux -u attach -d && exit)"
     alias tm="tmux -u"
+
+    if [[ -z $TMUX ]]; then
+        ta;
+    fi
 fi

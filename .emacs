@@ -8,6 +8,7 @@
 (when (>= emacs-major-version 24)
   (load "less-css-mode"))
 (load "markdown-mode")
+(load "evernote-mode")
 
 ;;;====Variable Customizations====
 (custom-set-variables
@@ -113,7 +114,7 @@
   '(progn
      (defface adams-linum
        `((t :inherit 'linum
-            :background "#222"))       
+            :background "#222"))
        nil 
        :group 'linum)
 
@@ -122,14 +123,14 @@
             :background "#222"))
        nil 
        :group 'linum)
-     
+
 
      (defface linum-leading-zero
        `((t :inherit 'adams-linum
             :foreground  "#222"))
        "Face for displaying leading zeroes for line numbers in display margin."
        :group 'linum)
-     
+
      (defun linum-format-func (line)
        (let ((w (length
                  (number-to-string (count-lines (point-min) (point-max))))))
@@ -138,7 +139,7 @@
                               'face 'linum-leading-zero)
                   (propertize (number-to-string line) 'face 'adams-linum)
                   ) (propertize " " 'face 'darker))))
-     
+
 
      (setq linum-format 'linum-format-func)))
 
@@ -163,3 +164,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+(require 'whitespace)
+(setq whitespace-style '(face empty tabs trailing lines-tail))
+(setq whitespace-trailing-regexp
+  " \\(\\(\t\\| \\|\xA0\\|\x8A0\\|\x920\\|\xE20\\|\xF20\\)+\\)$")
+(add-hook 'c-mode-common-hook 'whitespace-mode)
+(add-hook 'python-mode-hook 'whitespace-mode)
+(add-hook 'php-mode-hook 'whitespace-mode)
+(add-hook 'javascript-mode-hook 'whitespace-mode)
