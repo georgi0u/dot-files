@@ -8,7 +8,7 @@
 (when (>= emacs-major-version 24)
   (load "less-css-mode"))
 (load "markdown-mode")
-(load "evernote-mode")
+(load "highlight-indentation")
 
 ;;;====Variable Customizations====
 (custom-set-variables
@@ -72,6 +72,8 @@
 (add-hook 'html-mode-hook 'flyspell-prog-mode)
 (add-hook 'sh-mode-hook 'flyspell-prog-mode)
 (add-hook 'css-mode-hook 'flyspell-prog-mode)
+(add-hook 'markdown-mode-hook 'flyspell-mode)
+;;(add-hook 'markdown-mode-hook 'visual-line-mode)
 
 ;;=====Navigation stuff=====
 (defun select-next-window ()
@@ -158,14 +160,12 @@
 (add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.hpp\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(add-to-list 'auto-mode-alist '("\\.local_bashrc\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 
+;; ============= Whitespace mode ===============
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs trailing lines-tail))
 (setq whitespace-trailing-regexp
@@ -174,3 +174,15 @@
 (add-hook 'python-mode-hook 'whitespace-mode)
 (add-hook 'php-mode-hook 'whitespace-mode)
 (add-hook 'javascript-mode-hook 'whitespace-mode)
+
+;; Fuck you tutorial, etc.
+(global-set-key "\C-ht" nil)
+(global-set-key "\C-hT" nil)
+(global-set-key "\C-h\C-t" nil)
+
+
+;; ======== Highlight Indentation ============
+(add-hook 'c-mode-common-hook 'highlight-indentation-current-column-mode)
+(add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
+(add-hook 'php-mode-hook 'highlight-indentation-current-column-mode)
+(add-hook 'javascript-mode-hook 'highlight-indentation-current-column-mode)

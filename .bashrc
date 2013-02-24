@@ -33,7 +33,7 @@ function cd() {
 }
 
 function ta() {
-    tmux -u attach -d || tmux -u;
+    tmux -u attach -d;
 }
 
 if [ "$PS1" ]; then
@@ -51,23 +51,23 @@ if [ "$PS1" ]; then
     alias emac="emacs"
     alias eamc="emacs"
     alias untar="tar xfz"
-    alias ls='ls --color=auto'
+    alias ls='ls --color=auto -X'
     alias s='ls'
     alias sl='ls'
     alias sls='ls'
     alias lsl='ls'
     alias cd..='cd ..'
     alias ..="cd .."
-    alias la="ls -al"
+    alias la="ls --almost-all -l"
     alias ll="ls -l"
     alias l="ls -l"
-    alias tailf="tail -f"
+    alias tailf="tail --follow --sleep-interval=.5" 
     alias wls="watch -n.2 ls"
     alias ssh="ssh -q"
     alias sym="symlinks -v . | sort"
     alias cat*="head -n -1 *"
-
     alias tm="tmux -u"
+    alias curl="curl --silent"
 
     if [[ -z $TMUX ]]; then
         ta;
