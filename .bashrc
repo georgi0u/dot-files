@@ -33,7 +33,7 @@ function cd() {
 }
 
 function ta() {
-    tmux -u attach -d || tmux
+    tmux -u attach -d
 }
 
 if [ "$PS1" ]; then
