@@ -33,7 +33,7 @@ function cd() {
 }
 
 function ta() {
-    tmux -u attach -d;
+    tmux -u attach -d || tmux
 }
 
 if [ "$PS1" ]; then
@@ -72,4 +72,8 @@ if [ "$PS1" ]; then
     if [[ -z $TMUX ]]; then
         ta;
     fi
+
+    [ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors";
+    [ -e "$DIR_COLORS" ] || DIR_COLORS="";
+    eval "`dircolors -b $DIR_COLORS`";
 fi
