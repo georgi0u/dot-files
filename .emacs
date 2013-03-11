@@ -167,9 +167,8 @@
 
 ;; ============= Whitespace mode ===============
 (require 'whitespace)
-(setq whitespace-style '(face empty tabs trailing lines-tail))
-(setq whitespace-trailing-regexp
-  " \\(\\(\t\\| \\|\xA0\\|\x8A0\\|\x920\\|\xE20\\|\xF20\\)+\\)$")
+(setq whitespace-style '(face empty tabs trailing indentation space-before-tab space-after-tab lines))
+(setq whitespace-trailing-regexp " \\(\\(\t\\| \\|\xA0\\|\x8A0\\|\x920\\|\xE20\\|\xF20\\)+\\)$")
 (add-hook 'c-mode-common-hook 'whitespace-mode)
 (add-hook 'python-mode-hook 'whitespace-mode)
 (add-hook 'php-mode-hook 'whitespace-mode)
@@ -179,7 +178,6 @@
 (global-set-key "\C-ht" nil)
 (global-set-key "\C-hT" nil)
 (global-set-key "\C-h\C-t" nil)
-
 
 ;; ======== Highlight Indentation ============
 (add-hook 'c-mode-common-hook 'highlight-indentation-current-column-mode)
