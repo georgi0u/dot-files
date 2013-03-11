@@ -56,6 +56,7 @@ if [ "$PS1" ]; then
     alias sl='ls'
     alias sls='ls'
     alias lsl='ls'
+    alias scd='cd'
     alias cd..='cd ..'
     alias ..="cd .."
     alias la="ls --almost-all -l"
