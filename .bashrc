@@ -46,10 +46,14 @@ if [ "$PS1" ]; then
     export VISUAL="emacs"
     export TERM="xterm-256color"
     export GREP_OPTIONS="--color=auto"
+    export ALTERNATE_EDITOR="emacs"
 
-    alias eamcs="emacs"
-    alias emac="emacs"
-    alias eamc="emacs"
+    alias es="\emacs --daemon"
+    alias e="emacsclient -t"
+    alias emacs="e"
+    alias eamcs="e"
+    alias emac="e"
+    alias eamc="e"
     alias untar="tar xfz"
     alias ls='ls --color=auto -X'
     alias s='ls'
@@ -76,5 +80,5 @@ if [ "$PS1" ]; then
 
     [ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors";
     [ -e "$DIR_COLORS" ] || DIR_COLORS="";
-    eval "`dircolors -b $DIR_COLORS`";
+    eval "`dircolors -b $DIR_COLORS`";    
 fi

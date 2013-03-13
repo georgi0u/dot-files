@@ -179,8 +179,6 @@
 (global-set-key "\C-hT" nil)
 (global-set-key "\C-h\C-t" nil)
 
-;; ======== Highlight Indentation ============
-(add-hook 'c-mode-common-hook 'highlight-indentation-current-column-mode)
-(add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
-(add-hook 'php-mode-hook 'highlight-indentation-current-column-mode)
-(add-hook 'javascript-mode-hook 'highlight-indentation-current-column-mode)
+;; =========== Emacs server/client ================
+(defun server-remove-kill-buffer-hook () (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)) 
+(add-hook 'server-visit-hook 'server-remove-kill-buffer-hook) 
