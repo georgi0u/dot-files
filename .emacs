@@ -8,7 +8,6 @@
 (when (>= emacs-major-version 24)
   (load "less-css-mode"))
 (load "markdown-mode")
-(load "highlight-indentation")
 
 ;;;====Variable Customizations====
 (custom-set-variables
@@ -145,7 +144,6 @@
 
      (setq linum-format 'linum-format-func)))
 
-
 (global-set-key [f6] 'global-linum-mode)
 
 (put 'upcase-region 'disabled nil)
@@ -180,5 +178,6 @@
 (global-set-key "\C-h\C-t" nil)
 
 ;; =========== Emacs server/client ================
-(defun server-remove-kill-buffer-hook () (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)) 
+(defun server-remove-kill-buffer-hook () 
+  (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
 (add-hook 'server-visit-hook 'server-remove-kill-buffer-hook) 
