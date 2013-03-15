@@ -86,10 +86,6 @@ if [ "$PS1" ]; then
     alias tm="tmux -u"
     alias curl="curl --silent"
 
-    if [[ -z $TMUX ]]; then
-        ta;
-    fi
-
     [ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors";
     [ -e "$DIR_COLORS" ] || DIR_COLORS="";
     eval "`dircolors -b $DIR_COLORS`";    
