@@ -54,11 +54,11 @@ if [ "$PS1" ]; then
     shopt -s checkwinsize
 
     export HISTFILESIZE=100000;
-    export EDITOR="emacs"
-    export VISUAL="emacs"
+    export EDITOR="emacs -nw"
+    export VISUAL="emacs -nw"
     export TERM="xterm-256color"
     export GREP_OPTIONS="--color=auto"
-    export ALTERNATE_EDITOR="emacs"
+    export ALTERNATE_EDITOR="emacs -nw"
 
     alias es="\emacs --daemon"
     alias e="emacsclient -t"
