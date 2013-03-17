@@ -1,0 +1,18 @@
+#!/bin/bash
+
+trayer --edge top --SetDockType true --SetPartialStrut true --expand tru-width = 50 &
+
+xcompmgr &
+
+xrdb -merge .Xresources
+
+# Manage backgrounds
+nitrogen --restore &
+
+gnome-sound-applet &
+
+eval $(gnome-keyring-daemon --start)
+export GNOME_KEYRING_SOCKET
+export GNOME_KEYRING_PID
+
+exec gnome-session --session=xmonad
