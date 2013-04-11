@@ -162,6 +162,7 @@
 (add-to-list 'auto-mode-alist '("\\.local_bashrc\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . conf-mode))
 
 
 ;; ============= Whitespace mode ===============
@@ -182,3 +183,9 @@
 (defun server-remove-kill-buffer-hook () 
   (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
 (add-hook 'server-visit-hook 'server-remove-kill-buffer-hook)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -24,7 +24,7 @@ if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
 function set_prompt() {
     box_color=`get_box_level_color`;
     dir_color=`get_dir_level_color`;
-    PS1="$box_color\[\033[04m\]\u@\h\[\033[0m\] \[\e[1;35m\]jobs:\j $dir_color[\w]\n\[\033[0m\]$ ";
+    PS1="\[\033[0m\](\T)\n$box_color\[\033[04m\]\u@\h\[\033[0m\] \[\e[1;35m\]jobs: \j $dir_color[\w]\n\[\e[1;37m\]>>\[\e[0;37m\] ";
 }
 
 function cd() {
@@ -58,14 +58,12 @@ if [ "$PS1" ]; then
     export VISUAL="emacs -nw"
     export TERM="xterm-256color"
     export GREP_OPTIONS="--color=auto"
-    export ALTERNATE_EDITOR="emacs -nw"
 
     alias es="\emacs --daemon"
-    alias e="emacsclient -t"
-    alias emacs="e"
-    alias eamcs="e"
-    alias emac="e"
-    alias eamc="e"
+    alias e="emacsclient -t -a 'emacs'"
+    alias eamcs="emacs"
+    alias emac="emacs"
+    alias eamc="emacs"
     alias untar="tar xfz"
     alias ls='ls --color=auto -X'
     alias s='ls'
