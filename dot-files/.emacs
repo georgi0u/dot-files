@@ -185,15 +185,3 @@
 (defun server-remove-kill-buffer-hook () 
   (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
 (add-hook 'server-visit-hook 'server-remove-kill-buffer-hook)
-(when (file-exists-p "/usr/share/emacs/site-lisp/") 
-  (progn 
-    (add-to-list `load-path "/usr/share/emacs/site-lisp/")
-    (load "haskell-mode")
-    (add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
