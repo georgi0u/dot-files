@@ -24,7 +24,7 @@ if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
 function set_prompt() {
     box_color=`get_box_level_color`;
     dir_color=`get_dir_level_color`;
-    PS1="\[\033[0m\](\T)\n$box_color\[\033[04m\]\u@\h\[\033[0m\] \[\e[1;35m\]jobs: \j $dir_color[\w]\n\[\e[1;37m\]>>\[\e[0;37m\] ";
+    PS1="\[\033[0m\](\T)\n$box_color\[\033[04m\]\u@\h\[\033[0m\] \[\e[1;35m\]jobs: \j $dir_color[\w]\n\[\e[1;37m\]>> \[\e[0;37m\]";
 }
 
 function cd() {

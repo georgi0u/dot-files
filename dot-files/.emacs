@@ -146,6 +146,8 @@
      (setq linum-format 'linum-format-func)))
 
 (global-set-key [f6] 'global-linum-mode)
+(global-set-key [f5] 'whitespace-mode)
+(global-set-key [f9] 'flyspell-buffer)
 
 (put 'upcase-region 'disabled nil)
 
