@@ -21,10 +21,8 @@ function get_prompt() {
 }
 
 PROMPT=`get_prompt`
-RPROMPT="[%F{8}%D{%Y.%m.%d}%t%f]"
 
-function cd() {
-    builtin cd $@;
+function precmd() {
     PROMPT=`get_prompt`;
 }
 
