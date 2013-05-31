@@ -88,3 +88,7 @@ if [ "$PS1" ]; then
     [ -e "$DIR_COLORS" ] || DIR_COLORS="";
     eval "`dircolors -b $DIR_COLORS`";    
 fi
+
+if [[ -x `which --skip-alias zsh 2>/dev/null` ]]; then
+    exec zsh
+fi

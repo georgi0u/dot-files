@@ -169,9 +169,8 @@
 
 ;; ============= Whitespace mode ===============
 (require 'whitespace)
-(setq whitespace-style '(face empty tabs trailing indentation space-before-tab space-after-tab lines))
 (setq whitespace-trailing-regexp " \\(\\(\t\\| \\|\xA0\\|\x8A0\\|\x920\\|\xE20\\|\xF20\\)+\\)$")
-(add-hook 'c-mode-common-hook 'whitespace-mode)
+(setq whitespace-style '(face empty tabs trailing indentation space-before-tab space-after-tab lines-tail))
 (add-hook 'python-mode-hook 'whitespace-mode)
 (add-hook 'php-mode-hook 'whitespace-mode)
 (add-hook 'javascript-mode-hook 'whitespace-mode)
