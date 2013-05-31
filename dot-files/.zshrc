@@ -6,7 +6,7 @@ LOCAL_OPTIONS=${HOME}"/.local_zshrc"
 
 # Prompt Stuff
 function get_production_level() { echo $PRODUCTION_DESC; }
-function get_box_level_color() { echo '%F{green}' }
+function get_box_level_color() { echo '%F{9}' }
 function get_dir_level_color() { echo "%F{6}" }
 
 # Load Local rc file (overriding above functions)
