@@ -15,7 +15,7 @@ if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
 function get_prompt() {
     username="%F{9}%n%f"
     hostname=`get_box_level_color`"%M%f"
-    current_directory=`get_dir_level_color`"%~%f"
+    current_directory=`get_dir_level_color`"%d%f"
     background_jobs="%F{5}%(1j.(%j).)%f"
     echo "$username at $hostname in $current_directory $background_jobs\n$ ";
 }
