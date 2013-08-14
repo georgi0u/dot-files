@@ -37,7 +37,7 @@ fi
 # Set default editor
 if [[ -x $(which emacs 2> /dev/null) ]]
 then
-    export EDITOR="emacs"
+    export EDITOR="emacs -nw"
     export USE_EDITOR=$EDITOR
     export VISUAL=$EDITOR
 fi
@@ -89,9 +89,9 @@ export TIME_STYLE="long-iso"
 # Short command aliases
 alias es="\emacs --daemon"
 alias e="emacsclient -t -a 'emacs'"
-alias eamcs="emacs"
-alias emac="emacs"
-alias eamc="emacs"
+alias eamcs="emacs -nw"
+alias emac="emacs -nw"
+alias eamc="emacs -nw"
 alias untar="tar xfz"
 alias ls='ls --color=auto -X'
 alias s='ls'
