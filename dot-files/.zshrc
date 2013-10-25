@@ -1,11 +1,12 @@
 # Skip all this for non-interactive shells
-[[ -z "$PS1" ]] && return
+if [[ -z "$PS1" ]]; then
+    exit;
+fi
 
 # Local ZSH file
 LOCAL_OPTIONS=${HOME}"/.local_zshrc"
 
 # Prompt Stuff
-function get_production_level() { echo $PRODUCTION_DESC; }
 function get_box_level_color() { echo '%F{9}' }
 function get_dir_level_color() { echo "%F{6}" }
 
@@ -51,7 +52,7 @@ export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
 export HISTSIZE=25000
 export HISTFILE=~/.zsh_history
 export SAVEHIST=10000
-export TERM="xterm-256color"
+export TERM=xterm-256color
 export GREP_OPTIONS="--color=auto"
 
 setopt INC_APPEND_HISTORY
@@ -111,6 +112,7 @@ alias sym="symlinks -v . | sort"
 alias tm="tmux -u"
 alias ta="tmux -u attach -d"
 alias curl="curl --silent"
+alias _s="sudo -u"
 
 alias 'mkdir=mkdir -p'
 alias 'dus=du -ms * .*(N) | sort -n'
@@ -173,3 +175,10 @@ man() {
 # Stop backward-word at directory delimiters
 autoload -U select-word-style
 select-word-style bash
+
+function generate_pass(){
+    < /dev/urandom tr -dc "%^&*()+=_A-Z-a-z-0-9" | head -c10; echo;
+}
+
+# turn off ctrl s/ctrl q bullshit
+stty -ixon -ixoff    

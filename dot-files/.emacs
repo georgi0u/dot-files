@@ -19,7 +19,7 @@
  '(ansi-term-color-vector [unspecified "#002451" "#ff9da4" "#d1f1a9" "#ffeead" "#bbdaff" "#ebbbff" "#bbdaff" "#ffffff"])
  '(column-number-mode t)
  '(custom-enabled-themes (quote (tango-dark)))
- '(custom-safe-themes (quote ("8261f6e303524a9131536b51d525ea7b57d9bf253eb5359ad8f7242f90851e2c" "b63a3999093a513e2f263b2177a00cc85d945c0b98ee90d18fe2edcbee2a4299" "07b1b3a4854da0ed3a95772ed21da55a0d656ac4646596d4e80a71da5d8112b1" "5592dca15c2fb4f011ee3781eb6c44d13d4fa03d019de50ea34b13d667f2bf0a" "fa10d9e1fe9c534bb87bf1a6d8601ad42b1f11f43715a6b2929a5ecc91d4f5c9" "b12a903ec4c7ce0936dc394aa91788f91c73b33ef4b1a9d8acf94b6db7e144b4" "ca7fd88fa81ce1bdd1101dee25044967f037165af1fa29d7c2c78c4c4f069a85" "7a32ae82b734203858620bd2fcdfd8ee88b061d531abb38181b14f23cd62f563" "298561398e160a6bbb4bbd9a5d144bd76c8b63421fb13ec75edaa2f7459bb96b" "bf7ed640479049f1d74319ed004a9821072c1d9331bc1147e01d22748c18ebdf" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "e439d894bf9406baf73056cf7e3c913ee5c794b6adadbbb9f614aebed0fd9ce7" "cf2bb5e8046ca363183c87e8d33932f2a76a3d705b9db2721631777bbce92968" "4870e6cb6f0a70c14ee73db30b69a8a1f08d6ec9a689c366e88636fb81e8022d" default)))
+ '(custom-safe-themes (quote ("8261f6e303524a9131536b51d525ea7b57d9bf253eb5359ad8f7242f90851e2c" "b63a3999093a513e2f263b2177a00cc85d945c0b98ee90d18fe2edcbee2a4299" "07b1b3a4854da0ed3a95772ed21da55a0d656ac4646596d4e80a71da5d8112b1" "5592dca15c2fb4f011ee3781eb6c44d13d4fa03d019de50ea34b13d667f2bf0a" "fa10d9e1fe9c534bb87bf1a6d8601ad42b1f11f43715a6b2929a5ecc91d4f5c9" "b12a903ec4c7ce0936dc394aa91788f91c73b33ef4b1a9d8acf94b6db7e144b4" "ca7fd88fa81ce1bdd1101dee25044967f037165af1fa29d7c2c78c4c4f069a85" "7a32ae82b734203858620bd2fcdfd8ee88b061d531abb38181b14f23cd62f563" "298561398e160a6bbb4bbd9a5d144bd76c8b63421fb13ec75edaa2f7459bb96b" "bf7ed640479049f1d74319ed004a9821072c1d9331bc1147e01d22748c18ebdf" "d677ef584c6dfc062B97901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "e439d894bf9406baf73056cf7e3c913ee5c794b6adadbbb9f614aebed0fd9ce7" "cf2bb5e8046ca363183c87e8d33932f2a76a3d705b9db2721631777bbce92968" "4870e6cb6f0a70c14ee73db30b69a8a1f08d6ec9a689c366e88636fb81e8022d" default)))
  '(fci-rule-color "#eee8d5")
  '(global-linum-mode nil)
  '(gpm-mouse-mode nil)
@@ -117,20 +117,20 @@
   '(progn
      (defface adams-linum
        `((t :inherit 'linum
-            :background "#222"))
+            :background "#333"))
        nil 
        :group 'linum)
 
      (defface darker
        `((t :inherit 'linum
-            :background "#222"))
+            :background "#333"))
        nil 
        :group 'linum)
 
 
      (defface linum-leading-zero
        `((t :inherit 'adams-linum
-            :foreground  "#222"))
+            :foreground  "#333"))
        "Face for displaying leading zeroes for line numbers in display margin."
        :group 'linum)
 
@@ -148,7 +148,8 @@
 
 (global-set-key [f6] 'global-linum-mode)
 (global-set-key [f5] 'whitespace-mode)
-(global-set-key [f9] 'flyspell-buffer)
+(global-set-key [f9] 'align-regexp)
+(global-set-key [f10] 'sort-lines)
 
 (put 'upcase-region 'disabled nil)
 
@@ -173,7 +174,7 @@
 ;; ============= Whitespace mode ===============
 (require 'whitespace)
 (setq whitespace-trailing-regexp " \\(\\(\t\\| \\|\xA0\\|\x8A0\\|\x920\\|\xE20\\|\xF20\\)+\\)$")
-(setq whitespace-style '(face empty tabs trailing indentation space-before-tab space-after-tab))
+(setq whitespace-style '(face empty tabs trailing indentation space-before-tab space-after-tab lines-tail))
 (add-hook 'python-mode-hook 'whitespace-mode)
 (add-hook 'php-mode-hook 'whitespace-mode)
 (add-hook 'javascript-mode-hook 'whitespace-mode)
@@ -189,9 +190,25 @@
 (defun server-remove-kill-buffer-hook () 
   (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
 (add-hook 'server-visit-hook 'server-remove-kill-buffer-hook)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+;; ============== Org Mode =======================
+(add-to-list 'auto-mode-alist '("\\.plan\\'" . org-mode))
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+(setq org-log-done 'time)
+(if (eq system-uses-terminfo t)                                                 
+    (progn                               ;; PuTTY hack - needs to be in SCO mode 
+      (define-key key-translation-map [\e] [\M])                                
+      (define-key input-decode-map "\e[D" [S-left])                             
+      (define-key input-decode-map "\e[C" [S-right])                            
+      (define-key input-decode-map "\e[A" [S-up])                               
+      (define-key input-decode-map "\e[B" [S-down])))
+
+;; handle tmux's xterm-keys
+;; put the following line in your ~/.tmux.conf:
+;;   setw -g xterm-keys on
+(define-key key-translation-map (kbd "M-[ 1 ; 2 A") (kbd "S-<up>"))
+(define-key key-translation-map (kbd "M-[ 1 ; 2 B") (kbd "S-<down>"))
+(define-key key-translation-map (kbd "M-[ 1 ; 2 C") (kbd "S-<right>"))
+(define-key key-translation-map (kbd "M-[ 1 ; 2 D") (kbd "S-<left>"))
