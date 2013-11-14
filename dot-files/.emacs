@@ -1,3 +1,4 @@
+;; Set Load Path
 (add-to-list `load-path "~/.emacs.d/")
 (when (>= emacs-major-version 24)
   (add-to-list `custom-theme-load-path "~/.emacs.d/themes/"))
@@ -9,7 +10,7 @@
   (load "less-css-mode"))
 (load "markdown-mode")
 
-;;;====Variable Customizations====
+;; Variable Customizations
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -149,7 +150,6 @@
 (global-set-key [f6] 'global-linum-mode)
 (global-set-key [f5] 'whitespace-mode)
 (global-set-key [f9] 'align-regexp)
-(global-set-key [f10] 'sort-lines)
 
 (put 'upcase-region 'disabled nil)
 
@@ -181,12 +181,12 @@
 (add-hook 'c-mode-common-hook 'whitespace-mode)
 (add-hook 'c++-mode-common-hook 'whitespace-mode)
 
-;; Fuck you tutorial, etc.
+;; ============= Fuck you tutorial, etc. ===========
 (global-set-key "\C-ht" nil)
 (global-set-key "\C-hT" nil)
 (global-set-key "\C-h\C-t" nil)
 
-;; =========== Emacs server/client ================
+;; =========== Emacs server/client =================
 (defun server-remove-kill-buffer-hook () 
   (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
 (add-hook 'server-visit-hook 'server-remove-kill-buffer-hook)
@@ -212,3 +212,12 @@
 (define-key key-translation-map (kbd "M-[ 1 ; 2 B") (kbd "S-<down>"))
 (define-key key-translation-map (kbd "M-[ 1 ; 2 C") (kbd "S-<right>"))
 (define-key key-translation-map (kbd "M-[ 1 ; 2 D") (kbd "S-<left>"))
+
+;; Don't indent c/c++ namespaces
+(c-set-offset 'innamespace 0)
+
+;; No scratch message
+(setq initial-scratch-message "")
+
+;; Initial Mode is Markdown
+(setq initial-major-mode 'markdown-mode)

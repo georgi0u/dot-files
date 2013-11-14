@@ -28,20 +28,14 @@ function precmd() {
 }
 
 # Set less options
-if [[ -x $(which less 2> /dev/null) ]]
-then
-    export PAGER="less"
-    export LESS="--ignore-case --LONG-PROMPT --QUIET --chop-long-lines -Sm --RAW-CONTROL-CHARS --quit-if-one-screen --no-init"
-    export LESSHISTFILE='-'
-fi
+export PAGER="less"
+export LESS="--ignore-case --LONG-PROMPT --QUIET --chop-long-lines -Sm --RAW-CONTROL-CHARS --quit-if-one-screen --no-init"
+export LESSHISTFILE='-'
 
-# Set default editor
-if [[ -x $(which emacs 2> /dev/null) ]]
-then
-    export EDITOR="emacs -nw"
-    export USE_EDITOR=$EDITOR
-    export VISUAL=$EDITOR
-fi
+# Set EDITOR
+export EDITOR="emacs -nw"
+export USE_EDITOR=$EDITOR
+export VISUAL=$EDITOR
 
 # FAQ 3.10: Why does zsh not work in an Emacs shell mode any more?
 # http://zsh.sourceforge.net/FAQ/zshfaq03.html#l26
@@ -53,6 +47,7 @@ export HISTSIZE=25000
 export HISTFILE=~/.zsh_history
 export SAVEHIST=10000
 export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
 export GREP_OPTIONS="--color=auto"
 
 setopt INC_APPEND_HISTORY

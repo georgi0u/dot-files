@@ -67,6 +67,7 @@ if [ "$PS1" ]; then
     export EDITOR="emacs -nw"
     export VISUAL="emacs -nw"
     export TERM="xterm-256color"
+    [ -n "$TMUX" ] && export TERM=screen-256color
     export GREP_OPTIONS="--color=auto"
 
     alias es="\emacs --daemon"
