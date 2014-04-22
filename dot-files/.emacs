@@ -155,8 +155,8 @@
 
 
 ;; ========== ediff ==========
-(setq ediff-split-window-function 'split-window-horizontally) 
-(setq ediff-merge-split-window-function 'split-window-horizontally)
+;; (setq ediff-split-window-function 'split-window-horizontally) 
+;; (setq ediff-merge-split-window-function 'split-window-horizontally)
 
 
 ;; =========== auto mode list ================
@@ -214,6 +214,9 @@
 (define-key key-translation-map (kbd "M-[ 1 ; 2 D") (kbd "S-<left>"))
 
 ;; Don't indent c/c++ namespaces
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c++-mode-common-hook 'google-set-c-style)
 (c-set-offset 'innamespace 0)
 
 ;; No scratch message
@@ -221,3 +224,4 @@
 
 ;; Initial Mode is Markdown
 (setq initial-major-mode 'markdown-mode)
+

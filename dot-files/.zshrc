@@ -16,9 +16,10 @@ if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
 function get_prompt() {
     username="%F{9}%n%f"
     hostname=`get_box_level_color`"%M%f"
-    current_directory=`get_dir_level_color`"%~%f"
-    prompt="%(1j.%F{5}%j.$)%f"
-    echo "$username at $hostname in $current_directory \n$prompt ";
+    current_directory=`get_dir_level_color`"%d%f"
+    prompt="%(1j.%F{5}%j.%F{11}#)%f"
+    time="%F{13}%*%f"
+    echo "At $time on $hostname, $username was in $current_directory and ran...\n$prompt ";
 }
 
 PROMPT=`get_prompt`
@@ -29,7 +30,7 @@ function precmd() {
 
 # Set less options
 export PAGER="less"
-export LESS="--ignore-case --LONG-PROMPT --QUIET --chop-long-lines -Sm --RAW-CONTROL-CHARS --quit-if-one-screen --no-init"
+export LESS="--ignore-case --LONG-PROMPT --QUIET -m --RAW-CONTROL-CHARS --quit-if-one-screen --no-init"
 export LESSHISTFILE='-'
 
 # Set EDITOR
@@ -102,6 +103,7 @@ alias ll="ls -l"
 alias l="ls -l"
 alias tailf="tail --follow --sleep-interval=.5" 
 alias wls="watch -n.2 ls"
+alias wll="watch -n.2 ls -l"
 alias ssh="ssh -q"
 alias sym="symlinks -v . | sort"
 alias tm="tmux -u"
@@ -177,3 +179,5 @@ function generate_pass(){
 
 # turn off ctrl s/ctrl q bullshit
 stty -ixon -ixoff    
+
+autoload -U zmv
