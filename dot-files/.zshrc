@@ -17,9 +17,9 @@ function get_prompt() {
     username="%F{9}%n%f"
     hostname=`get_box_level_color`"%M%f"
     current_directory=`get_dir_level_color`"%d%f"
-    prompt="%(1j.%F{5}%j.%F{11}#)%f"
-    time="%F{13}%*%f"
-    echo "At $time on $hostname, $username was in $current_directory and ran...\n$prompt ";
+    prompt="%(1j.%F{5}%j.$)%f"
+    time="%*%f"
+    echo "$time\n$username $hostname $current_directory\n$prompt ";
 }
 
 PROMPT=`get_prompt`
