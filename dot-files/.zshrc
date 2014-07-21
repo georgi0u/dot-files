@@ -14,15 +14,17 @@ function get_dir_level_color() { echo "%F{6}" }
 if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
 
 function get_prompt() {
-    username="%F{12}%n%f"
+    username="%F{9}%n%f"
     hostname=`get_box_level_color`"%M%f"
     current_directory=`get_dir_level_color`"%d%f"
     prompt="%(1j.%F{5}%j.$)%f"
     time="%*%f"
     virtual_env=""
+
     if [[ -e $VIRTUAL_ENV ]]
-        virtual_env="%F{1}VIRTUAL ENVIRONMENT ACTIVE\n"
-    echo "$time\n$virtual_env$username  $hostname $current_directory\n$prompt ";
+        virtual_env="%F{1}(VIRTUAL ENVIRONMENT ACTIVE)%f\n"
+
+    echo "$time\n${virtual_env}$username $hostname $current_directory\n$prompt ";
 }
 
 PROMPT=`get_prompt`
@@ -94,7 +96,7 @@ alias eamcs="emacs -nw"
 alias emac="emacs -nw"
 alias eamc="emacs -nw"
 alias untar="tar xfz"
-alias ls='ls --color=auto -X --group-directories-first'
+alias ls='ls --color=auto -X'
 alias s='ls'
 alias sl='ls'
 alias sls='ls'
