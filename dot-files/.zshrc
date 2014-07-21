@@ -19,7 +19,10 @@ function get_prompt() {
     current_directory=`get_dir_level_color`"%d%f"
     prompt="%(1j.%F{5}%j.$)%f"
     time="%*%f"
-    echo "$time\n$username $hostname $current_directory\n$prompt ";
+    virtual_env=""
+    if [[ -e $VIRTUAL_ENV ]]
+        virtual_env="%F{1}VIRTUAL ENVIRONMENT ACTIVE\n"
+    echo "$time\n$virtual_env$username  $hostname $current_directory\n$prompt ";
 }
 
 PROMPT=`get_prompt`
