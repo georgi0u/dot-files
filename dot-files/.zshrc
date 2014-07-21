@@ -14,7 +14,7 @@ function get_dir_level_color() { echo "%F{6}" }
 if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
 
 function get_prompt() {
-    username="%F{9}%n%f"
+    username="%F{12}%n%f"
     hostname=`get_box_level_color`"%M%f"
     current_directory=`get_dir_level_color`"%d%f"
     prompt="%(1j.%F{5}%j.$)%f"
@@ -89,11 +89,12 @@ export TIME_STYLE="long-iso"
 # Short command aliases
 alias es="\emacs --daemon"
 alias e="emacsclient -t -a 'emacs'"
+alias emacs="emacs -nw"
 alias eamcs="emacs -nw"
 alias emac="emacs -nw"
 alias eamc="emacs -nw"
 alias untar="tar xfz"
-alias ls='ls --color=auto -X'
+alias ls='ls --color=auto -X --group-directories-first'
 alias s='ls'
 alias sl='ls'
 alias sls='ls'
