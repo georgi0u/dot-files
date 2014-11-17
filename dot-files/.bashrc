@@ -1,9 +1,9 @@
 # Skip all this for non-interactive shells
 [[ -z "$PS1" ]] && return
 
-export PATH="/home/user/ageorgiou/.my_software/bin":$PATH
+export PATH="$HOME/.my_software/bin":$PATH
 
-if [[ -x `which --skip-alias zsh 2>/dev/null` ]]; then
+if [[ -x `which zsh 2>/dev/null` ]]; then
     exec zsh;
     exit 0;
 fi
