@@ -56,7 +56,7 @@ function get_prompt() {
         virtual_env="%F{1}(VIRTUAL ENVIRONMENT ACTIVE)%f\n"
     fi
 
-    echo "$time\n${virtual_env}$username $hostname $current_directory\n$prompt ";
+    echo "$time\n${virtual_env}$username at $hostname in $current_directory doing...\n$prompt ";
 }
 
 PROMPT=`get_prompt`
