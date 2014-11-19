@@ -3,14 +3,44 @@ if [[ -z "$PS1" ]]; then
     exit;
 fi
 
-# Local ZSH file
-LOCAL_OPTIONS=${HOME}"/.local_zshrc"
-
 # Prompt Stuff
 function get_box_level_color() { echo '%F{9}' }
 function get_dir_level_color() { echo "%F{6}" }
 
-# Load Local rc file (overriding above functions)
+# Short command aliases
+alias es="\emacs --daemon"
+alias e="emacsclient -t -a 'emacs'"
+alias emacs="emacs -nw"
+alias eamcs="emacs -nw"
+alias emac="emacs -nw"
+alias eamc="emacs -nw"
+alias untar="tar xfz"
+alias ls='ls -G'
+alias s='ls'
+alias sl='ls'
+alias sls='ls'
+alias lsl='ls'
+alias scd='cd'
+alias cd..='cd ..'
+alias ..="cd .."
+alias la="ls -al"
+alias ll="ls -al"
+alias l="ls -l"
+alias tailf="tail --follow --sleep-interval=.5" 
+alias wls="watch -n.2 ls"
+alias wll="watch -n.2 ls -l"
+alias ssh="ssh -q"
+alias sym="symlinks -v . | sort"
+alias tm="tmux -u"
+alias ta="tmux -u attach -d"
+alias curl="curl --silent"
+alias _s="sudo -u"
+alias 'mkdir=mkdir -p'
+alias 'dus=du -ms * .*(N) | sort -n'
+alias 'dus.=du -ms .* | sort -n'
+
+# Local ZSH file
+LOCAL_OPTIONS=${HOME}"/.local_zshrc"
 if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
 
 function get_prompt() {
@@ -89,39 +119,6 @@ fi
 
 export TIME_STYLE="long-iso"
 
-# Short command aliases
-alias es="\emacs --daemon"
-alias e="emacsclient -t -a 'emacs'"
-alias emacs="emacs -nw"
-alias eamcs="emacs -nw"
-alias emac="emacs -nw"
-alias eamc="emacs -nw"
-alias untar="tar xfz"
-alias ls='ls -G'
-alias s='ls'
-alias sl='ls'
-alias sls='ls'
-alias lsl='ls'
-alias scd='cd'
-alias cd..='cd ..'
-alias ..="cd .."
-alias la="ls -al"
-alias ll="ls -al"
-alias l="ls -l"
-alias tailf="tail --follow --sleep-interval=.5" 
-alias wls="watch -n.2 ls"
-alias wll="watch -n.2 ls -l"
-alias ssh="ssh -q"
-alias sym="symlinks -v . | sort"
-alias tm="tmux -u"
-alias ta="tmux -u attach -d"
-alias curl="curl --silent"
-alias _s="sudo -u"
-
-alias 'mkdir=mkdir -p'
-alias 'dus=du -ms * .*(N) | sort -n'
-alias 'dus.=du -ms .* | sort -n'
-
 # Quick find
 f() {
     echo "find . -iname \"*$1*\""
@@ -188,3 +185,4 @@ function generate_pass(){
 stty -ixon -ixoff    
 
 autoload -U zmv
+
