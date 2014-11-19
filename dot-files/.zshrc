@@ -84,7 +84,6 @@ setopt NO_BG_NICE
 if [[ "$TERM" != "dumb" ]]; then
     if [[ -x `which dircolors 2> /dev/null` ]]; then
         eval `dircolors -b`
-        alias 'ls=ls --color=auto'
     fi
 fi
 
@@ -98,7 +97,7 @@ alias eamcs="emacs -nw"
 alias emac="emacs -nw"
 alias eamc="emacs -nw"
 alias untar="tar xfz"
-alias ls='ls --color=auto -X'
+alias ls='ls -G'
 alias s='ls'
 alias sl='ls'
 alias sls='ls'
@@ -106,8 +105,8 @@ alias lsl='ls'
 alias scd='cd'
 alias cd..='cd ..'
 alias ..="cd .."
-alias la="ls --almost-all -l"
-alias ll="ls -l"
+alias la="ls -al"
+alias ll="ls -al"
 alias l="ls -l"
 alias tailf="tail --follow --sleep-interval=.5" 
 alias wls="watch -n.2 ls"

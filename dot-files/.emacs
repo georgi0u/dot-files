@@ -1,5 +1,5 @@
 ;; Set Load Path
-(add-to-list `load-path "~/.emacs.d/")
+(add-to-list `load-path "~/.emacs.d/lisp")
 (when (>= emacs-major-version 24)
   (add-to-list `custom-theme-load-path "~/.emacs.d/themes/"))
 
