@@ -24,6 +24,7 @@ alias scd='cd'
 alias cd..='cd ..'
 alias ..="cd .."
 alias la="ls -al"
+alias al="ls -al"
 alias ll="ls -al"
 alias l="ls -l"
 alias tailf="tail --follow --sleep-interval=.5" 
@@ -185,4 +186,3 @@ function generate_pass(){
 stty -ixon -ixoff    
 
 autoload -U zmv
-
