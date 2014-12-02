@@ -8,37 +8,32 @@ function get_box_level_color() { echo '%F{9}' }
 function get_dir_level_color() { echo "%F{6}" }
 
 # Short command aliases
-alias es="\emacs --daemon"
-alias e="emacsclient -t -a 'emacs'"
 alias emacs="emacs -nw"
 alias eamcs="emacs -nw"
 alias emac="emacs -nw"
 alias eamc="emacs -nw"
 alias untar="tar xfz"
-alias ls='ls -G'
-alias s='ls'
-alias sl='ls'
-alias sls='ls'
-alias lsl='ls'
-alias scd='cd'
-alias cd..='cd ..'
-alias ..="cd .."
+alias base_ls="ls -G --group-directories-first --sort=extension"
+alias ls="base_ls"
+alias s="ls"
+alias sl="ls"
+alias sls="ls"
+alias lsl="ls"
 alias la="ls -al"
 alias al="ls -al"
-alias ll="ls -al"
+alias ll="ls -l"
 alias l="ls -l"
+alias scd="cd"
+alias cd..="cd .."
+alias ..="cd .."
 alias tailf="tail --follow --sleep-interval=.5" 
 alias wls="watch -n.2 ls"
 alias wll="watch -n.2 ls -l"
 alias ssh="ssh -q"
-alias sym="symlinks -v . | sort"
 alias tm="tmux -u"
 alias ta="tmux -u attach -d"
 alias curl="curl --silent"
-alias _s="sudo -u"
-alias 'mkdir=mkdir -p'
-alias 'dus=du -ms * .*(N) | sort -n'
-alias 'dus.=du -ms .* | sort -n'
+
 
 # Local ZSH file
 LOCAL_OPTIONS=${HOME}"/.local_zshrc"
@@ -48,7 +43,7 @@ function get_prompt() {
     username="%F{10}%n%f"
     hostname=`get_box_level_color`"%M%f"
     current_directory=`get_dir_level_color`"%d%f"
-    prompt="%(1j.%F{5}%j.$)%f"
+    prompt="%(1j.%F{5}%j.this:)%f"
     time="%*%f"
 
     if [ -z "$VIRTUAL_ENV" ]; then
@@ -57,7 +52,7 @@ function get_prompt() {
         virtual_env="%F{1}(VIRTUAL ENVIRONMENT ACTIVE)%f\n"
     fi
 
-    echo "$time\n${virtual_env}$username at $hostname in $current_directory doing...\n$prompt ";
+    echo "${virtual_env}$username is on...\n$hostname in...\n$current_directory doing...\n$prompt ";
 }
 
 PROMPT=`get_prompt`
