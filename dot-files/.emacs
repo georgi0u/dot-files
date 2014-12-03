@@ -66,7 +66,8 @@
   (xterm-register-default-colors)
   (tty-set-up-initial-frame-faces))
 
-(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
+(add-hook 'c-mode-hook 'flyspell-prog-mode)
+(add-hook 'c++-mode-hook 'flyspell-prog-mode)
 (add-hook 'perl-mode-hook 'flyspell-prog-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
 (add-hook 'php-mode-hook 'flyspell-prog-mode)
@@ -75,7 +76,7 @@
 (add-hook 'sh-mode-hook 'flyspell-prog-mode)
 (add-hook 'css-mode-hook 'flyspell-prog-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
-;;(add-hook 'markdown-mode-hook 'visual-line-mode)
+(add-hook 'text-mode-hook 'flyspell-mode)
 
 ;;=====Navigation stuff=====
 (defun select-next-window ()
@@ -174,13 +175,31 @@
 
 ;; ============= Whitespace mode ===============
 (require 'whitespace)
+
+
 (setq whitespace-trailing-regexp " \\(\\(\t\\| \\|\xA0\\|\x8A0\\|\x920\\|\xE20\\|\xF20\\)+\\)$")
 (setq whitespace-style '(face empty tabs trailing indentation space-before-tab space-after-tab lines-tail))
+
+(defun eighty-char-limit-hook ()
+  (setq whitespace-line-column 80))
+
+(defun hundred-char-limit-hook ()
+  (setq whitespace-line-column 100))
+
 (add-hook 'python-mode-hook 'whitespace-mode)
-(add-hook 'php-mode-hook 'whitespace-mode)
+(add-hook 'python-mode-hook 'eighty-char-limit-hook)
+
+(add-hook 'c-mode-hook 'whitespace-mode)
+(add-hook 'c-mode-hook 'eighty-char-limit-hook)
+
 (add-hook 'javascript-mode-hook 'whitespace-mode)
-(add-hook 'c-mode-common-hook 'whitespace-mode)
-(add-hook 'c++-mode-common-hook 'whitespace-mode)
+(add-hook 'javascript-mode-hook 'eighty-char-limit-hook)
+
+(add-hook 'c++-mode-hook 'whitespace-mode)
+(add-hook 'c++-mode-hook 'eighty-char-limit-hook)
+
+(add-hook 'java-mode-hook 'whitespace-mode)
+(add-hook 'java-mode-hook 'hundred-char-limit-hook)
 
 ;; ============= Fuck you tutorial, etc. ===========
 (global-set-key "\C-ht" nil)
