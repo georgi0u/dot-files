@@ -43,7 +43,7 @@ function get_prompt() {
     username="%F{10}%n%f"
     hostname=`get_box_level_color`"%M%f"
     current_directory=`get_dir_level_color`"%d%f"
-    prompt="%(1j.%F{5}%j.this:)%f"
+    prompt="%(1j.%F{5}%j.>)%f"
     time="%*%f"
 
     if [ -z "$VIRTUAL_ENV" ]; then

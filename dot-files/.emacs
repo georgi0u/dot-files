@@ -43,10 +43,8 @@
 ;;=====Goto Line===================
 (global-set-key "\C-xg" 'goto-line)
 
-
 (global-unset-key "")
 (global-set-key "\C-cc" 'comment-box)
-
 
 ;; Stop C-[ (i.e. escape) from closing buffers 
 (global-unset-key "")
@@ -159,10 +157,14 @@
 ;; (setq ediff-split-window-function 'split-window-horizontally) 
 ;; (setq ediff-merge-split-window-function 'split-window-horizontally)
 
+;; =========== third party language modes ====
+(require 'go-mode)
+(require 'soy-mode)
+(require 'protobuf-mode)
 
 ;; =========== auto mode list ================
-(require 'go-mode)
 (add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 (add-to-list 'auto-mode-alist '("\\.hpp\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.local_bashrc\\'" . sh-mode))
@@ -233,15 +235,8 @@
 (define-key key-translation-map (kbd "M-[ 1 ; 2 C") (kbd "S-<right>"))
 (define-key key-translation-map (kbd "M-[ 1 ; 2 D") (kbd "S-<left>"))
 
-;; Don't indent c/c++ namespaces
-(require 'google-c-style)
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c++-mode-common-hook 'google-set-c-style)
-(c-set-offset 'innamespace 0)
-
 ;; No scratch message
 (setq initial-scratch-message "")
 
 ;; Initial Mode is Markdown
 (setq initial-major-mode 'markdown-mode)
-
