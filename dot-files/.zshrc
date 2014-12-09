@@ -8,6 +8,7 @@ function get_box_level_color() { echo '%F{9}' }
 function get_dir_level_color() { echo "%F{6}" }
 
 # Short command aliases
+alias e="emacsclient -c -nw"
 alias emacs="emacs -nw"
 alias eamcs="emacs -nw"
 alias emac="emacs -nw"
@@ -34,11 +35,6 @@ alias tm="tmux -u"
 alias ta="tmux -u attach -d"
 alias curl="curl --silent"
 
-
-# Local ZSH file
-LOCAL_OPTIONS=${HOME}"/.local_zshrc"
-if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
-
 function get_prompt() {
     username="%F{10}%n%f"
     hostname=`get_box_level_color`"%M%f"
@@ -56,7 +52,6 @@ function get_prompt() {
 }
 
 PROMPT=`get_prompt`
-
 function precmd() {
     PROMPT=`get_prompt`;
 }
@@ -181,3 +176,7 @@ function generate_pass(){
 stty -ixon -ixoff    
 
 autoload -U zmv
+
+# Local ZSH file
+LOCAL_OPTIONS=${HOME}"/.local_zshrc"
+if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi

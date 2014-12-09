@@ -178,7 +178,6 @@
 ;; ============= Whitespace mode ===============
 (require 'whitespace)
 
-
 (setq whitespace-trailing-regexp " \\(\\(\t\\| \\|\xA0\\|\x8A0\\|\x920\\|\xE20\\|\xF20\\)+\\)$")
 (setq whitespace-style '(face empty tabs trailing indentation space-before-tab space-after-tab lines-tail))
 
