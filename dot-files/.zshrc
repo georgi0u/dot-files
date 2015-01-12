@@ -62,7 +62,8 @@ export LESS="--ignore-case --LONG-PROMPT --QUIET -m --RAW-CONTROL-CHARS --quit-i
 export LESSHISTFILE='-'
 
 # Set EDITOR
-export EDITOR="emacs -nw"
+export EDITOR="emacs24 -nw"
+export ALTERNATE_EDITOR="emacs -nw"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
@@ -75,15 +76,16 @@ export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
 export HISTSIZE=25000
 export HISTFILE=~/.zsh_history
 export SAVEHIST=10000
-export TERM=xterm-256color
-[ -n "$TMUX" ] && export TERM=screen-256color
-export GREP_OPTIONS="--color=auto"
-
+setopt histignorespace
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
+
+export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
+export GREP_OPTIONS="--color=auto"
 
 # Say how long a command took, if it took more than 30 seconds
 export REPORTTIME=3
