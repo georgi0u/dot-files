@@ -3,10 +3,6 @@ if [[ -z "$PS1" ]]; then
     exit;
 fi
 
-# Prompt Stuff
-function get_box_level_color() { echo '%F{9}' }
-function get_dir_level_color() { echo "%F{6}" }
-
 # Short command aliases
 alias e="emacsclient -c -nw"
 alias emacs="emacs -nw"
@@ -35,9 +31,15 @@ alias tm="tmux -u"
 alias ta="tmux -u attach -d"
 alias curl="curl --silent"
 
+# Prompt Stuff
+function get_box_level_color() { echo '%F{9}' }
+function get_dir_level_color() { echo "%F{6}" }
+function get_vcs_info() { echo "" }
+
 function get_prompt() {
     username="%F{10}%n%f"
     hostname=`get_box_level_color`"%M%f"
+    vcs_info="%F{3}"`get_vcs_info`"%f"
     current_directory=`get_dir_level_color`"%d%f"
     prompt="%(1j.%F{5}%j.>)%f"
     time="%*%f"
@@ -48,7 +50,8 @@ function get_prompt() {
         virtual_env="%F{1}(VIRTUAL ENVIRONMENT ACTIVE)%f\n"
     fi
 
-    echo "${virtual_env}$username is on...\n$hostname in...\n$current_directory doing...\n$prompt ";
+    echo "${virtual_env}$username is on...\n$hostname in...\n$vcs_info$current_directory doing...\n$prompt ";
+    
 }
 
 PROMPT=`get_prompt`
