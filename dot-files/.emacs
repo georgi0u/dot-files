@@ -153,9 +153,15 @@
 (put 'upcase-region 'disabled nil)
 
 
+;; ======== Transpose windows =============
+(require 'transpose-frame)
+(global-set-key (kbd "\C-x SPC") 'transpose-frame)
+(global-set-key (kbd "\C-x \C-@") 'flop-frame) ;; for whatever reason, the second control+space gets registered as an `@`
+
+
 ;; ========== ediff ==========
-;; (setq ediff-split-window-function 'split-window-horizontally) 
-;; (setq ediff-merge-split-window-function 'split-window-horizontally)
+(setq ediff-split-window-function 'split-window-horizontally) 
+(setq ediff-merge-split-window-function 'split-window-horizontally)
 
 ;; =========== third party language modes ====
 (require 'go-mode)
