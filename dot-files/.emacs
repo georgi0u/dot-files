@@ -50,6 +50,7 @@
 (global-unset-key "")
 
 ;; Mice
+(require 'mouse) 
 (xterm-mouse-mode 1)
 
 ;; I don't have any lost love for the <insert> key, so disable it
@@ -245,3 +246,5 @@
 
 ;; Initial Mode is Markdown
 (setq initial-major-mode 'markdown-mode)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
