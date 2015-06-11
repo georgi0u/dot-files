@@ -1,0 +1,159 @@
+;; Object place/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "place/"
+  :tables (list 
+   (semanticdb-table "EntryPlace.java"
+    :major-mode 'java-mode
+    :tags 
+        '( ("com.google.contentads.xfa.verification.frontend.client.place" package nil nil [1 70])
+            ("com.google.common.net.UriParameterMap" include nil nil [72 117])
+            ("com.google.contentads.xfa.verification.api.shared.DateRange" include nil nil [118 185])
+            ("com.google.contentads.xfa.verification.api.shared.DimensionType" include nil nil [186 257])
+            ("com.google.contentads.xfa.verification.api.shared.Row" include nil nil [258 319])
+            ("com.google.contentads.xfa.verification.frontend.shared.ContentProblemView" include nil nil [320 401])
+            ("com.google.contentads.xfa.verification.frontend.shared.ViewType" include nil nil [402 473])
+            ("com.google.gwt.place.shared.Place" include nil nil [474 515])
+            ("java.util.Objects" include nil nil [517 542])
+            ("EntryPlace" type
+               (:typemodifiers ("public")
+                :superclasses "Place"
+                :members 
+                  ( ("parentRow" variable
+                       (:typemodifiers ("private" "final")
+                        :type "Row")
+                        (reparse-symbol class_member_declaration) [734 762])
+                    ("key" variable
+                       (:typemodifiers ("private" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [765 790])
+                    ("viewType" variable
+                       (:typemodifiers ("private" "final")
+                        :type "ViewType")
+                        (reparse-symbol class_member_declaration) [793 825])
+                    ("dateRange" variable
+                       (:typemodifiers ("private" "final")
+                        :type "DateRange")
+                        (reparse-symbol class_member_declaration) [828 862])
+                    ("level" variable
+                       (:typemodifiers ("private" "final")
+                        :type "DimensionType")
+                        (reparse-symbol class_member_declaration) [898 932])
+                    ("contentView" variable
+                       (:typemodifiers ("private" "final")
+                        :type "ContentProblemView")
+                        (reparse-symbol class_member_declaration) [967 1012])
+                    ("KEY" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1016 1056])
+                    ("VIEW" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1059 1101])
+                    ("LEVEL" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1104 1148])
+                    ("CONTENT" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1151 1199])
+                    ("DATE_RANGE" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1202 1256])
+                    ("EntryPlace" function
+                       (:constructor-flag t
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("parentRow" variable (:type "Row") (reparse-symbol formal_parameters) [1280 1293])
+                            ("viewType" variable (:type "ViewType") (reparse-symbol formal_parameters) [1295 1312])
+                            ("level" variable (:type "DimensionType") (reparse-symbol formal_parameters) [1314 1333])
+                            ("dateRange" variable (:type "DateRange") (reparse-symbol formal_parameters) [1335 1354]))                          )
+                        (reparse-symbol class_member_declaration) [1262 1436])
+                    ("EntryPlace" function
+                       (:constructor-flag t
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("key" variable (:type "String") (reparse-symbol formal_parameters) [1458 1468])
+                            ("viewType" variable (:type "ViewType") (reparse-symbol formal_parameters) [1470 1487])
+                            ("level" variable (:type "DimensionType") (reparse-symbol formal_parameters) [1489 1508]))                          )
+                        (reparse-symbol class_member_declaration) [1440 1565])
+                    ("EntryPlace" function
+                       (:constructor-flag t
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("key" variable (:type "String") (reparse-symbol formal_parameters) [1587 1597])
+                            ("contentView" variable (:type "ContentProblemView") (reparse-symbol formal_parameters) [1599 1629]))                          )
+                        (reparse-symbol class_member_declaration) [1569 1717])
+                    ("EntryPlace" function
+                       (:constructor-flag t
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("parentRow" variable (:type "Row") (reparse-symbol formal_parameters) [1741 1754])
+                            ("key" variable (:type "String") (reparse-symbol formal_parameters) [1756 1766])
+                            ("viewType" variable (:type "ViewType") (reparse-symbol formal_parameters) [1768 1785])
+                            ("level" variable (:type "DimensionType") (reparse-symbol formal_parameters) [1787 1806])
+                            ("contentView" variable (:type "ContentProblemView") (reparse-symbol formal_parameters) [1814 1844])
+                            ("dateRange" variable (:type "DateRange") (reparse-symbol formal_parameters) [1846 1865]))                          )
+                        (reparse-symbol class_member_declaration) [1723 2046])
+                    ("getEntry" function
+                       (:typemodifiers ("public")
+                        :type "Row")
+                        (reparse-symbol class_member_declaration) [2050 2099])
+                    ("getLevel" function
+                       (:typemodifiers ("public")
+                        :type "DimensionType")
+                        (reparse-symbol class_member_declaration) [2103 2158])
+                    ("getTab" function
+                       (:typemodifiers ("public")
+                        :type "ViewType")
+                        (reparse-symbol class_member_declaration) [2162 2213])
+                    ("getKey" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [2217 2261])
+                    ("getContentView" function
+                       (:typemodifiers ("public")
+                        :type "ContentProblemView")
+                        (reparse-symbol class_member_declaration) [2265 2337])
+                    ("getDateRange" function
+                       (:typemodifiers ("public")
+                        :type "DateRange")
+                        (reparse-symbol class_member_declaration) [2343 2402])
+                    ("getToken" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [2406 3088])
+                    ("shouldHaveSameActivityAs" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("that" variable (:type "EntryPlace") (reparse-symbol formal_parameters) [3226 3241]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [3186 3783])
+                    ("getPlace" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("row" variable (:type "Row") (reparse-symbol formal_parameters) [3821 3828])
+                            ("token" variable (:type "String") (reparse-symbol formal_parameters) [3830 3842]))                          
+                        :type "EntryPlace")
+                        (reparse-symbol class_member_declaration) [3787 4332])
+                    ("getPlace" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("token" variable (:type "String") (reparse-symbol formal_parameters) [4370 4382]))                          
+                        :type "EntryPlace")
+                        (reparse-symbol class_member_declaration) [4336 4423]))                  
+                :type "class")
+                nil [692 4425]))          
+    :file "EntryPlace.java"
+    :pointmax 4426
+    :fsize 4425
+    :lastmodtime '(21740 45444 0 0)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!google!src!cloud!adamgeorgiou!c1!google3!java!com!google!contentads!xfa!verification!frontend!client!place!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )

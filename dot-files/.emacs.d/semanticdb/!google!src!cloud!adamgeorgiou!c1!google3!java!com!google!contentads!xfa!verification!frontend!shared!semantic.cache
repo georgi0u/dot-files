@@ -1,0 +1,122 @@
+;; Object shared/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "shared/"
+  :tables (list 
+   (semanticdb-table "BUILD"
+    :major-mode 'google3-build-mode
+    :tags 
+        '( ("package" code nil nil [164 234])
+            ("java_library" code nil nil [838 978]))          
+    :file "BUILD"
+    :pointmax 979
+    :fsize 978
+    :lastmodtime '(21732 56180 0 0)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "ProfileContext.java"
+    :major-mode 'java-mode
+    :tags 
+        '( ("com.google.contentads.xfa.verification.frontend.shared" package nil nil [1 64])
+            ("com.google.contentads.xfa.verification.api.shared.DfaLogin" include nil nil [66 132])
+            ("java.io.Serializable" include nil nil [134 162])
+            ("ProfileContext" type
+               (:typemodifiers ("public")
+                :interfaces ("Serializable")
+                :members 
+                  ( ("login" variable
+                       (:typemodifiers ("private")
+                        :type "DfaLogin")
+                        (reparse-symbol class_member_declaration) [344 367])
+                    ("headerConfigurationJson" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [370 409])
+                    ("userSettingsJson" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [412 444])
+                    ("dataThroughDate" variable
+                       (:typemodifiers ("private")
+                        :type "int")
+                        (reparse-symbol class_member_declaration) [447 475])
+                    ("dataFromDate" variable
+                       (:typemodifiers ("private")
+                        :type "int")
+                        (reparse-symbol class_member_declaration) [516 541])
+                    ("ProfileContext" function
+                       (:constructor-flag t
+                        :typemodifiers ("public"))
+                        (reparse-symbol class_member_declaration) [585 614])
+                    ("ProfileContext" function
+                       (:constructor-flag t
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("login" variable (:type "DfaLogin") (reparse-symbol formal_parameters) [640 654])
+                            ("headerConfigurationJson" variable (:type "String") (reparse-symbol formal_parameters) [656 686])
+                            ("userSettingsJson" variable (:type "String") (reparse-symbol formal_parameters) [688 711])
+                            ("dataFromDate" variable (:type "int") (reparse-symbol formal_parameters) [719 735])
+                            ("dataThroughDate" variable (:type "int") (reparse-symbol formal_parameters) [737 756]))                          )
+                        (reparse-symbol class_member_declaration) [618 975])
+                    ("getLogin" function
+                       (:typemodifiers ("public")
+                        :type "DfaLogin")
+                        (reparse-symbol class_member_declaration) [979 1029])
+                    ("setLogin" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("login" variable (:type "DfaLogin") (reparse-symbol formal_parameters) [1054 1068]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1033 1099])
+                    ("getHeaderConfigurationJson" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1103 1187])
+                    ("setHeaderConfigurationJson" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("headerConfigurationJson" variable (:type "String") (reparse-symbol formal_parameters) [1230 1260]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1191 1327])
+                    ("getUserSettingsJson" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1331 1401])
+                    ("setUserSettingsJson" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("userSettingsJson" variable (:type "String") (reparse-symbol formal_parameters) [1437 1460]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1405 1513])
+                    ("getDataThroughDate" function
+                       (:typemodifiers ("public")
+                        :type "int")
+                        (reparse-symbol class_member_declaration) [1517 1582])
+                    ("setDataThroughDate" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("dataThroughDate" variable (:type "int") (reparse-symbol formal_parameters) [1617 1636]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1586 1687])
+                    ("getDataFromDate" function
+                       (:typemodifiers ("public")
+                        :type "int")
+                        (reparse-symbol class_member_declaration) [1691 1750])
+                    ("setDataFromDate" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("dataFromDate" variable (:type "int") (reparse-symbol formal_parameters) [1782 1798]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1754 1843]))                  
+                :type "class")
+                nil [288 1845]))          
+    :file "ProfileContext.java"
+    :pointmax 1846
+    :fsize 1845
+    :lastmodtime '(21732 56169 0 0)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!google!src!cloud!adamgeorgiou!c1!google3!java!com!google!contentads!xfa!verification!frontend!shared!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )

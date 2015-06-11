@@ -1,0 +1,24 @@
+;; Object shared/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "shared/"
+  :tables (list 
+   (semanticdb-table "Dimensions.java"
+    :major-mode 'java-mode
+    :tags 
+        '( ("com.google.contentads.xfa.verification.api.shared" package nil nil [1 59])
+            ("com.google.common.base.Splitter" include nil nil [61 100])
+            ("com.google.common.collect.Lists" include nil nil [101 140])
+            ("java.io.Serializable" include nil nil [142 170])
+            ("java.util.ArrayList" include nil nil [171 198])
+            ("java.util.Objects" include nil nil [199 224]))          
+    :file "Dimensions.java"
+    :pointmax 7821
+    :fsize 7820
+    :lastmodtime '(21759 31844 0 0)
+    :unmatched-syntax '((BRACE_BLOCK 413 . 7820) (GT 411 . 412) (IDENTIFIER 401 . 411) (PUBLIC 341 . 347) (LT 400 . 401) (BRACE_BLOCK 413 . 7798) (GT 411 . 412) (IDENTIFIER 401 . 411) (PUBLIC 341 . 347) (LT 400 . 401) (BRACE_BLOCK 413 . 7794) (GT 411 . 412) (IDENTIFIER 401 . 411) (PUBLIC 341 . 347) (LT 400 . 401) (BRACE_BLOCK 413 . 7820) (GT 411 . 412) (IDENTIFIER 401 . 411) (PUBLIC 341 . 347) (LT 400 . 401) (BRACE_BLOCK 413 . 7822) (GT 411 . 412) (IDENTIFIER 401 . 411) (PUBLIC 341 . 347) (LT 400 . 401) (BRACE_BLOCK 413 . 7820) (GT 411 . 412) (IDENTIFIER 401 . 411) (PUBLIC 341 . 347) (LT 400 . 401) (BRACE_BLOCK 413 . 7821) (GT 411 . 412) (IDENTIFIER 401 . 411) (PUBLIC 341 . 347) (LT 400 . 401) (BRACE_BLOCK 413 . 7820) (GT 411 . 412) (IDENTIFIER 401 . 411) (PUBLIC 341 . 347) (LT 400 . 401))
+    )
+   )
+  :file "!google!src!cloud!adamgeorgiou!c3!google3!java!com!google!contentads!xfa!verification!api!shared!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )

@@ -1,0 +1,21 @@
+;; Object server/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "server/"
+  :tables (list 
+   (semanticdb-table "BUILD"
+    :major-mode 'google3-build-mode
+    :tags 
+        '( ("package" code nil nil [67 137])
+            ("subinclude" code nil nil [2547 2600])
+            ("junit4_test_suites" code nil nil [2602 2771]))          
+    :file "BUILD"
+    :pointmax 2772
+    :fsize 2771
+    :lastmodtime '(21735 25597 0 0)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!google!src!cloud!adamgeorgiou!c1!google3!javatests!com!google!contentads!xfa!verification!frontend!server!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )

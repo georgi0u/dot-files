@@ -1,0 +1,57 @@
+;; Object shared/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "shared/"
+  :tables (list 
+   (semanticdb-table "DateRangeUtilTest.java"
+    :major-mode 'java-mode
+    :tags 
+        '( ("com.google.contentads.xfa.verification.api.shared" package nil nil [53 111])
+            ("com.google.common.collect.Lists" include nil nil [159 198])
+            ("org.joda.time.LocalDate" include nil nil [200 231])
+            ("org.junit.Test" include nil nil [232 254])
+            ("org.junit.runner.RunWith" include nil nil [255 287])
+            ("org.junit.runners.JUnit4" include nil nil [288 320])
+            ("DateRangeUtilTest" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("testTranslation" function
+                       (:typemodifiers ("public")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [485 822])
+                    ("testGetDatesInRange" function
+                       (:typemodifiers ("public")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [834 1218])
+                    ("testGetDremelDatesInRange" function
+                       (:typemodifiers ("public")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1230 1561])
+                    ("testLimitBounds" function
+                       (:typemodifiers ("public")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1573 2614])
+                    ("testTruncate" function
+                       (:typemodifiers ("public")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [2626 3335])
+                    ("testInvalidDates_short" function
+                       (:typemodifiers ("public")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [3375 3456])
+                    ("testInvalidDates_long" function
+                       (:typemodifiers ("public")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [3496 3579]))                  
+                :type "class")
+                nil [441 3581]))          
+    :file "DateRangeUtilTest.java"
+    :pointmax 3582
+    :fsize 3581
+    :lastmodtime '(21768 39398 0 0)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!google!src!cloud!adamgeorgiou!c1!google3!javatests!com!google!contentads!xfa!verification!api!shared!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )

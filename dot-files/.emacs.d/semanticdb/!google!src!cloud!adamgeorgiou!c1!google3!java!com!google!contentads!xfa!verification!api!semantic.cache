@@ -1,0 +1,256 @@
+;; Object api/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "api/"
+  :tables (list 
+   (semanticdb-table "VerificationReader.java"
+    :major-mode 'java-mode
+    :tags 
+        '( ("com.google.contentads.xfa.verification.api" package nil nil [1 52])
+            ("com.google.common.annotations.VisibleForTesting" include nil nil [54 109])
+            ("com.google.common.base.Preconditions" include nil nil [110 154])
+            ("com.google.common.base.Stopwatch" include nil nil [155 195])
+            ("com.google.common.collect.Lists" include nil nil [196 235])
+            ("com.google.common.flags.Flag" include nil nil [236 272])
+            ("com.google.common.flags.FlagSpec" include nil nil [273 313])
+            ("com.google.common.hash.HashCode" include nil nil [314 353])
+            ("com.google.contentads.xfa.verification.api.analytics.AnalyticsUtils" include nil nil [354 429])
+            ("com.google.contentads.xfa.verification.api.analytics.DimensionNameReader" include nil nil [430 510])
+            ("com.google.contentads.xfa.verification.api.analytics.MarsReader" include nil nil [511 582])
+            ("com.google.contentads.xfa.verification.api.cache.DremCache" include nil nil [583 649])
+            ("com.google.contentads.xfa.verification.api.common.DataRowsMerger" include nil nil [650 722])
+            ("com.google.contentads.xfa.verification.api.common.request.DataRequest" include nil nil [723 800])
+            ("com.google.contentads.xfa.verification.api.common.request.DataResponse" include nil nil [801 879])
+            ("com.google.contentads.xfa.verification.api.common.request.DataRow" include nil nil [880 953])
+            ("com.google.contentads.xfa.verification.api.common.request.DimensionFieldFilter" include nil nil [954 1040])
+            ("com.google.contentads.xfa.verification.api.common.request.DimensionFilter.MatchType" include nil nil [1041 1132])
+            ("com.google.contentads.xfa.verification.api.common.request.DimensionPair" include nil nil [1133 1212])
+            ("com.google.contentads.xfa.verification.api.common.request.MetricField" include nil nil [1213 1290])
+            ("com.google.contentads.xfa.verification.api.common.request.ResponseMetadata" include nil nil [1291 1373])
+            ("com.google.contentads.xfa.verification.api.dremel.FactReader" include nil nil [1374 1442])
+            ("com.google.contentads.xfa.verification.api.dremel.QueryRunner" include nil nil [1443 1512])
+            ("com.google.contentads.xfa.verification.api.exceptions.VerificationAccessException" include nil nil [1513 1602])
+            ("com.google.contentads.xfa.verification.api.exceptions.VerificationBaseException" include nil nil [1603 1690])
+            ("com.google.contentads.xfa.verification.api.exceptions.VerificationServerException" include nil nil [1691 1780])
+            ("com.google.contentads.xfa.verification.api.shared.DateRange" include nil nil [1781 1848])
+            ("com.google.contentads.xfa.verification.api.shared.DateRangeUtil" include nil nil [1849 1920])
+            ("com.google.contentads.xfa.verification.api.shared.DfaLogin" include nil nil [1921 1987])
+            ("com.google.contentads.xfa.verification.api.shared.DfaLogin.Permission" include nil nil [1988 2065])
+            ("com.google.contentads.xfa.verification.api.shared.metrics.DimensionFieldType" include nil nil [2066 2150])
+            ("com.google.contentads.xfa.verification.api.shared.metrics.FieldSource" include nil nil [2151 2228])
+            ("com.google.contentads.xfa.verification.api.shared.metrics.LongValue" include nil nil [2229 2304])
+            ("com.google.contentads.xfa.verification.api.shared.metrics.StringValue" include nil nil [2305 2382])
+            ("com.google.i18n.identifiers.TimeZoneId" include nil nil [2383 2429])
+            ("com.google.inject.Inject" include nil nil [2430 2462])
+            ("com.google.inject.Provider" include nil nil [2463 2497])
+            ("com.google.inject.Singleton" include nil nil [2498 2533])
+            ("com.google.inject.name.Named" include nil nil [2534 2570])
+            ("org.joda.time.LocalDate" include nil nil [2572 2603])
+            ("java.util.ArrayList" include nil nil [2605 2632])
+            ("java.util.Collections" include nil nil [2633 2662])
+            ("java.util.LinkedHashMap" include nil nil [2663 2694])
+            ("java.util.List" include nil nil [2695 2717])
+            ("java.util.Map" include nil nil [2718 2739])
+            ("java.util.Map.Entry" include nil nil [2740 2767])
+            ("java.util.concurrent.Callable" include nil nil [2768 2805])
+            ("java.util.concurrent.ExecutionException" include nil nil [2806 2853])
+            ("java.util.concurrent.ExecutorService" include nil nil [2854 2898])
+            ("java.util.concurrent.Future" include nil nil [2899 2934])
+            ("java.util.concurrent.TimeUnit" include nil nil [2935 2972])
+            ("java.util.logging.Logger" include nil nil [2973 3005])
+            ("VerificationReader" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("TIME_UNIT" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "TimeUnit")
+                        (reparse-symbol class_member_declaration) [3538 3602])
+                    ("TIME_UNIT_LABEL" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [3605 3656])
+                    ("DATA_AVAILABILITY_DAYS" variable
+                       (:typemodifiers ("public" "static" "final")
+                        :type "int")
+                        (reparse-symbol class_member_declaration) [3728 3780])
+                    ("ROW_LIMIT" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "int")
+                        (reparse-symbol class_member_declaration) [3843 3885])
+                    ("logger" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "Logger")
+                        (reparse-symbol class_member_declaration) [3888 3978])
+                    ("robotLogin" variable
+                       (:typemodifiers ("private" "static")
+                        :type "DfaLogin")
+                        (reparse-symbol class_member_declaration) [3981 4016])
+                    ("runner" variable
+                       (:typemodifiers ("private" "final")
+                        :type "QueryRunner")
+                        (reparse-symbol class_member_declaration) [4534 4567])
+                    ("accountsCache" variable
+                       (:typemodifiers ("private" "final")
+                        :type "AccountsCache")
+                        (reparse-symbol class_member_declaration) [4570 4612])
+                    ("cache" variable
+                       (:typemodifiers ("private" "final")
+                        :type "DremCache")
+                        (reparse-symbol class_member_declaration) [4615 4645])
+                    ("executor" variable
+                       (:typemodifiers ("private" "final")
+                        :type "ExecutorService")
+                        (reparse-symbol class_member_declaration) [4648 4687])
+                    ("requestTransformer" variable
+                       (:typemodifiers ("private" "final")
+                        :type "RequestTransformer")
+                        (reparse-symbol class_member_declaration) [4690 4742])
+                    ("VerificationReader" function
+                       (:constructor-flag t
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("accountsCache" variable (:type "AccountsCache") (reparse-symbol formal_parameters) [4782 4809])
+                            ("" variable (:type "factReaderProvider") (reparse-symbol formal_parameters) [4838 4856])
+                            ("" variable (:type "marsReaderProvider") (reparse-symbol formal_parameters) [4885 4903])
+                            ("" variable (:type "nameReaderProvider") (reparse-symbol formal_parameters) [4941 4959])
+                            ("" variable (:type "rowMergerProvider") (reparse-symbol formal_parameters) [4992 5009])
+                            ("runner" variable (:type "QueryRunner") (reparse-symbol formal_parameters) [5017 5035])
+                            ("cache" variable (:type "DremCache") (reparse-symbol formal_parameters) [5043 5058])
+                            ("executor" variable (:type "ExecutorService") (reparse-symbol formal_parameters) [5103 5127])
+                            ("timer" variable (:type "Stopwatch") (reparse-symbol formal_parameters) [5135 5150])
+                            ("requestTransformer" variable (:type "RequestTransformer") (reparse-symbol formal_parameters) [5158 5195]))                          )
+                        (reparse-symbol class_member_declaration) [4756 6664])
+                    ("areAliasesAndAccountsLoaded" function
+                       (:typemodifiers ("private")
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [6668 6777])
+                    ("getData" function
+                       (:constructor-flag t
+                        :throws ("VerificationBaseException")
+                        :arguments 
+                          ( ("" variable (:type "requests") (reparse-symbol formal_parameters) [7147 7155])
+                            ("login" variable
+                               (:typemodifiers ("final")
+                                :type "DfaLogin")
+                                (reparse-symbol formal_parameters) [7157 7177]))                          )
+                        (reparse-symbol class_member_declaration) [7121 8139])
+                    ("getData" function
+                       (:throws ("VerificationBaseException")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("request" variable (:type "DataRequest") (reparse-symbol formal_parameters) [8370 8389]))                          
+                        :type "DataResponse")
+                        (reparse-symbol class_member_declaration) [8342 8619])
+                    ("getData" function
+                       (:throws ("VerificationBaseException")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("request" variable (:type "DataRequest") (reparse-symbol formal_parameters) [8869 8888])
+                            ("login" variable (:type "DfaLogin") (reparse-symbol formal_parameters) [8890 8904]))                          
+                        :type "DataResponse")
+                        (reparse-symbol class_member_declaration) [8841 10050])
+                    ("getAccountName" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("accountId" variable (:type "long") (reparse-symbol formal_parameters) [10154 10168]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [10125 10307])
+                    ("getDataFromCacheIfPossible" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("request" variable (:type "DataRequest") (reparse-symbol formal_parameters) [10565 10584])
+                            ("login" variable (:type "DfaLogin") (reparse-symbol formal_parameters) [10586 10600]))                          
+                        :type "DataResponse")
+                        (reparse-symbol class_member_declaration) [10517 10959])
+                    ("doGetData" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("request" variable (:type "DataRequest") (reparse-symbol formal_parameters) [11091 11110])
+                            ("login" variable (:type "DfaLogin") (reparse-symbol formal_parameters) [11112 11126]))                          
+                        :type "DataResponse")
+                        (reparse-symbol class_member_declaration) [11060 15621])
+                    ("logExecutionTimes" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("" variable (:type "String") (reparse-symbol formal_parameters) [15660 15666])
+                            ("" variable (:type "executionTimes") (reparse-symbol formal_parameters) [15674 15688]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [15625 16054])
+                    ("createFactReader" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("request" variable (:type "DataRequest") (reparse-symbol formal_parameters) [16094 16113])
+                            ("login" variable (:type "DfaLogin") (reparse-symbol formal_parameters) [16115 16129])
+                            ("rowLimit" variable (:type "int") (reparse-symbol formal_parameters) [16131 16143]))                          
+                        :type "FactReader")
+                        (reparse-symbol class_member_declaration) [16058 16381])
+                    ("createMarsReader" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("request" variable (:type "DataRequest") (reparse-symbol formal_parameters) [16421 16440])
+                            ("gaiaId" variable (:type "long") (reparse-symbol formal_parameters) [16442 16453])
+                            ("loginId" variable (:type "long") (reparse-symbol formal_parameters) [16455 16467]))                          
+                        :type "MarsReader")
+                        (reparse-symbol class_member_declaration) [16385 16633])
+                    ("hasMetric" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("" variable (:type "metrics") (reparse-symbol formal_parameters) [16781 16788])
+                            ("source" variable (:type "FieldSource") (reparse-symbol formal_parameters) [16790 16808]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [16737 16967])
+                    ("analyticsFilter" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("" variable (:type "filters") (reparse-symbol formal_parameters) [17301 17308])
+                            ("nameReader" variable (:type "DimensionNameReader") (reparse-symbol formal_parameters) [17316 17346]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [17242 18601])
+                    ("addAccountName" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("response" variable (:type "DataResponse") (reparse-symbol formal_parameters) [18695 18716]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [18667 19160])
+                    ("setStaticDates" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("request" variable (:type "DataRequest") (reparse-symbol formal_parameters) [19398 19417]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [19370 20162])
+                    ("addSecurityFilters" function
+                       (:arguments 
+                          ( ("request" variable (:type "DataRequest") (reparse-symbol formal_parameters) [20351 20370])
+                            ("login" variable (:type "DfaLogin") (reparse-symbol formal_parameters) [20372 20386]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [20327 21806])
+                    ("getLastAvailableDate" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("accountId" variable (:type "long") (reparse-symbol formal_parameters) [21935 21949]))                          
+                        :type "LocalDate")
+                        (reparse-symbol class_member_declaration) [21896 22353]))                  
+                :type "class")
+                nil [3086 22355]))          
+    :file "VerificationReader.java"
+    :pointmax 22356
+    :fsize 22354
+    :lastmodtime '(21726 29076 0 0)
+    :unmatched-syntax '((GT 17299 . 17300) (IDENTIFIER 17274 . 17278) (LT 17278 . 17279) (GT 16779 . 16780) (IDENTIFIER 16763 . 16767) (LT 16767 . 16768) (IDENTIFIER 15668 . 15672) (GT 15672 . 15673) (IDENTIFIER 15656 . 15659) (LT 15659 . 15660) (GT 7145 . 7146) (IDENTIFIER 7129 . 7133) (LT 7133 . 7134) (GT 7119 . 7120) (PUBLIC 7095 . 7101) (LT 7106 . 7107) (IDENTIFIER 5066 . 5072) (PAREN_BLOCK 5072 . 5102) (GT 4990 . 4991) (IDENTIFIER 4967 . 4975) (LT 4975 . 4976) (GT 4939 . 4940) (IDENTIFIER 4911 . 4919) (LT 4919 . 4920) (GT 4883 . 4884) (IDENTIFIER 4864 . 4872) (LT 4872 . 4873) (GT 4836 . 4837) (IDENTIFIER 4817 . 4825) (LT 4825 . 4826) (SEMICOLON 4530 . 4531) (GT 4511 . 4512) (LT 4496 . 4497) (SEMICOLON 4470 . 4471) (GT 4450 . 4451) (LT 4430 . 4431) (SEMICOLON 4404 . 4405) (GT 4384 . 4385) (LT 4373 . 4374) (SEMICOLON 4347 . 4348) (GT 4327 . 4328) (STATIC 4020 . 4026) (PRIVATE 4294 . 4301) (LT 4316 . 4317) (SEMICOLON 3532 . 3533) (PAREN_BLOCK 3527 . 3532) (EQ 3515 . 3516) (GT 3498 . 3499) (PRIVATE 3465 . 3472) (LT 3490 . 3491) (STRING_LITERAL 3426 . 3461) (EQ 3424 . 3425) (COMMA 3411 . 3412) (STRING_LITERAL 3339 . 3411) (IDENTIFIER 3332 . 3336) (EQ 3337 . 3338) (SEMICOLON 3317 . 3318) (PAREN_BLOCK 3311 . 3317) (EQ 3299 . 3300) (GT 3278 . 3279) (IDENTIFIER 3122 . 3131) (PUBLIC 3246 . 3252) (LT 3270 . 3271) (STRING_LITERAL 3220 . 3242) (EQ 3218 . 3219) (COMMA 3199 . 3200) (STRING_LITERAL 3139 . 3199) (IDENTIFIER 3132 . 3136) (EQ 3137 . 3138) (IDENTIFIER 3075 . 3085))
+    )
+   (semanticdb-table "BUILD"
+    :major-mode 'google3-build-mode
+    :tags 
+        '( ("package" code nil nil [173 243])
+            ("java_library" code nil nil [245 1258])
+            ("java_library" code nil nil [1260 1785]))          
+    :file "BUILD"
+    :pointmax 1786
+    :fsize 1785
+    :lastmodtime '(21734 3483 0 0)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!google!src!cloud!adamgeorgiou!c1!google3!java!com!google!contentads!xfa!verification!api!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )

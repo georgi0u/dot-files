@@ -1,0 +1,9 @@
+;; Object google3/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "google3/"
+  :tables (list 
+    )
+  :file "!google!src!cloud!adamgeorgiou!c1!google3!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )

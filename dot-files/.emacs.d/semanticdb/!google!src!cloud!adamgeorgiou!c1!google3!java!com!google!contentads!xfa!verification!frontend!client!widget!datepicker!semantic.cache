@@ -1,0 +1,208 @@
+;; Object datepicker/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "datepicker/"
+  :tables (list 
+   (semanticdb-table "DatePicker.java"
+    :major-mode 'java-mode
+    :tags 
+        '( ("com.google.contentads.xfa.verification.frontend.client.widget.datepicker" package nil nil [1 82])
+            ("com.google.contentads.xfa.verification.api.shared.DateRange" include nil nil [84 151])
+            ("com.google.contentads.xfa.verification.frontend.client.common.ClientMessagesUtil" include nil nil [152 240])
+            ("com.google.contentads.xfa.verification.frontend.client.common.JsUtil" include nil nil [241 317])
+            ("com.google.contentads.xfa.verification.frontend.client.common.ViewUtils" include nil nil [318 397])
+            ("com.google.contentads.xfa.verification.frontend.shared.Constants" include nil nil [398 470])
+            ("com.google.gwt.core.client.GWT" include nil nil [471 509])
+            ("com.google.gwt.dom.client.Element" include nil nil [510 551])
+            ("com.google.gwt.event.dom.client.ClickEvent" include nil nil [552 602])
+            ("com.google.gwt.event.dom.client.ClickHandler" include nil nil [603 655])
+            ("com.google.gwt.event.logical.shared.HasValueChangeHandlers" include nil nil [656 722])
+            ("com.google.gwt.event.logical.shared.ValueChangeEvent" include nil nil [723 783])
+            ("com.google.gwt.event.logical.shared.ValueChangeHandler" include nil nil [784 846])
+            ("com.google.gwt.event.shared.HandlerRegistration" include nil nil [847 902])
+            ("com.google.gwt.uibinder.client.UiBinder" include nil nil [903 950])
+            ("com.google.gwt.uibinder.client.UiField" include nil nil [951 997])
+            ("com.google.gwt.user.client.ui.Anchor" include nil nil [998 1042])
+            ("com.google.gwt.user.client.ui.Composite" include nil nil [1043 1090])
+            ("com.google.gwt.user.client.ui.HTMLPanel" include nil nil [1091 1138])
+            ("org.joda.time.LocalDate" include nil nil [1140 1171])
+            ("java.util.Date" include nil nil [1173 1195]))          
+    :file "DatePicker.java"
+    :pointmax 5128
+    :fsize 5127
+    :lastmodtime '(21726 29151 0 0)
+    :unmatched-syntax '((BRACE_BLOCK 1402 . 5127) (GT 1400 . 1401) (BRACK_BLOCK 1398 . 1400) (IDENTIFIER 1389 . 1398) (PUBLIC 1313 . 1319) (LT 1388 . 1389) (BRACE_BLOCK 1402 . 5128) (GT 1400 . 1401) (BRACK_BLOCK 1398 . 1400) (IDENTIFIER 1389 . 1398) (PUBLIC 1313 . 1319) (LT 1388 . 1389) (BRACE_BLOCK 1402 . 5127) (GT 1400 . 1401) (BRACK_BLOCK 1398 . 1400) (IDENTIFIER 1389 . 1398) (PUBLIC 1313 . 1319) (LT 1388 . 1389))
+    )
+   (semanticdb-table "DatePickerPopup.java"
+    :major-mode 'java-mode
+    :tags 
+        '( ("com.google.contentads.xfa.verification.frontend.client.widget.datepicker" package nil nil [1 82])
+            ("com.google.ads.common.gwt.widgets.button.SmallButton" include nil nil [84 144])
+            ("com.google.common.annotations.VisibleForTesting" include nil nil [145 200])
+            ("com.google.common.base.Pair" include nil nil [201 236])
+            ("com.google.common.collect.Lists" include nil nil [237 276])
+            ("com.google.contentads.xfa.verification.api.shared.DateRange" include nil nil [277 344])
+            ("com.google.contentads.xfa.verification.api.shared.DateRange.Range" include nil nil [345 418])
+            ("com.google.contentads.xfa.verification.frontend.client.common.ClientMessagesUtil" include nil nil [419 507])
+            ("com.google.contentads.xfa.verification.frontend.client.common.Messages" include nil nil [508 586])
+            ("com.google.contentads.xfa.verification.frontend.client.common.ViewUtils" include nil nil [587 666])
+            ("com.google.contentads.xfa.verification.frontend.client.widget.BubblePanel" include nil nil [667 748])
+            ("com.google.gwt.core.client.GWT" include nil nil [749 787])
+            ("com.google.gwt.dom.client.Element" include nil nil [788 829])
+            ("com.google.gwt.event.dom.client.ClickEvent" include nil nil [830 880])
+            ("com.google.gwt.event.dom.client.ClickHandler" include nil nil [881 933])
+            ("com.google.gwt.event.logical.shared.ShowRangeEvent" include nil nil [934 992])
+            ("com.google.gwt.event.logical.shared.ShowRangeHandler" include nil nil [993 1053])
+            ("com.google.gwt.resources.client.CssResource" include nil nil [1054 1105])
+            ("com.google.gwt.safehtml.client.SafeHtmlTemplates" include nil nil [1106 1162])
+            ("com.google.gwt.safehtml.shared.SafeHtml" include nil nil [1163 1210])
+            ("com.google.gwt.uibinder.client.UiBinder" include nil nil [1211 1258])
+            ("com.google.gwt.uibinder.client.UiField" include nil nil [1259 1305])
+            ("com.google.gwt.uibinder.client.UiHandler" include nil nil [1306 1354])
+            ("com.google.gwt.user.client.ui.FlowPanel" include nil nil [1355 1402])
+            ("com.google.gwt.user.client.ui.FocusPanel" include nil nil [1403 1451])
+            ("com.google.gwt.user.client.ui.HTMLPanel" include nil nil [1452 1499])
+            ("com.google.gwt.user.client.ui.PopupPanel" include nil nil [1500 1548])
+            ("com.google.gwt.user.client.ui.SimplePanel" include nil nil [1549 1598])
+            ("com.google.gwt.user.datepicker.client.CalendarUtil" include nil nil [1599 1657])
+            ("com.google.gwt.user.datepicker.client.DateBox" include nil nil [1658 1711])
+            ("com.google.gwt.user.datepicker.client.DateBox.Format" include nil nil [1712 1772])
+            ("org.joda.time.LocalDate" include nil nil [1774 1805])
+            ("java.util.ArrayList" include nil nil [1807 1834])
+            ("java.util.Date" include nil nil [1835 1857])
+            ("java.util.Objects" include nil nil [1858 1883])
+            ("DatePickerPopup" type
+               (:typemodifiers ("public")
+                :superclasses "PopupPanel"
+                :members 
+                  ( ("Style" type
+                       (:interfaces ("CssResource")
+                        :members 
+                          ( ("dateDesc" function (:type "String") (reparse-symbol interface_member_declaration) [2242 2260])
+                            ("dateValue" function (:type "String") (reparse-symbol interface_member_declaration) [2265 2284])
+                            ("selected" function (:type "String") (reparse-symbol interface_member_declaration) [2289 2307])
+                            ("range" function (:type "String") (reparse-symbol interface_member_declaration) [2312 2327])
+                            ("separator" function (:type "String") (reparse-symbol interface_member_declaration) [2332 2351]))                          
+                        :type "interface")
+                        (reparse-symbol class_member_declaration) [2200 2355])
+                    ("DatePickerTemplates" type
+                       (:interfaces ("SafeHtmlTemplates")
+                        :members 
+                          ( ("INSTANCE" variable
+                               (:typemodifiers ("static")
+                                :type "DatePickerTemplates")
+                                (reparse-symbol interface_member_declaration) [2420 2496])
+                            ("rangeItem" function
+                               (:arguments 
+                                  ( ("dateDescription" variable (:type "String") (reparse-symbol formal_parameters) [2619 2641])
+                                    ("dateValue" variable (:type "String") (reparse-symbol formal_parameters) [2643 2659])
+                                    ("descClass" variable (:type "String") (reparse-symbol formal_parameters) [2661 2677])
+                                    ("dateClass" variable (:type "String") (reparse-symbol formal_parameters) [2679 2695])
+                                    ("id" variable (:type "String") (reparse-symbol formal_parameters) [2697 2706]))                                  
+                                :type "SafeHtml")
+                                (reparse-symbol interface_member_declaration) [2591 2708]))                          
+                        :type "interface")
+                        (reparse-symbol class_member_declaration) [2358 2712])
+                    ("dateBoxFormat" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "Format")
+                        (reparse-symbol class_member_declaration) [2996 3101])
+                    ("customRangePanel" variable
+                       (:typemodifiers ("private")
+                        :type "FocusPanel")
+                        (reparse-symbol class_member_declaration) [3105 3141])
+                    ("datePicker" variable
+                       (:typemodifiers ("private")
+                        :type "DatePicker")
+                        (reparse-symbol class_member_declaration) [3144 3174])
+                    ("firstAvailableDate" variable
+                       (:typemodifiers ("private")
+                        :type "Date")
+                        (reparse-symbol class_member_declaration) [3177 3209])
+                    ("lastAvailableDate" variable
+                       (:typemodifiers ("private")
+                        :type "Date")
+                        (reparse-symbol class_member_declaration) [3212 3243])
+                    ("maxSelectableDays" variable
+                       (:typemodifiers ("private")
+                        :type "Integer")
+                        (reparse-symbol class_member_declaration) [3246 3280])
+                    ("DatePickerPopup" function
+                       (:constructor-flag t
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("datePicker" variable (:type "DatePicker") (reparse-symbol formal_parameters) [3378 3399]))                          )
+                        (reparse-symbol class_member_declaration) [3355 3687])
+                    ("setSelectedDates" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("range" variable (:type "Range") (reparse-symbol formal_parameters) [3779 3790])
+                            ("startDate" variable (:type "LocalDate") (reparse-symbol formal_parameters) [3792 3811])
+                            ("endDate" variable (:type "LocalDate") (reparse-symbol formal_parameters) [3813 3830]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [3750 4511])
+                    ("setDateRestrictions" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("firstDate" variable (:type "LocalDate") (reparse-symbol formal_parameters) [4892 4911])
+                            ("lastDate" variable (:type "LocalDate") (reparse-symbol formal_parameters) [4913 4931])
+                            ("maxDays" variable (:type "Integer") (reparse-symbol formal_parameters) [4933 4948]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [4860 5361])
+                    ("cancelClicked" function
+                       (:arguments 
+                          ( ("event" variable (:type "ClickEvent") (reparse-symbol formal_parameters) [5497 5513]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [5450 5555])
+                    ("applyClicked" function
+                       (:arguments 
+                          ( ("event" variable (:type "ClickEvent") (reparse-symbol formal_parameters) [5814 5830]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [5768 7173])
+                    ("hide" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("autoClosed" variable (:type "boolean") (reparse-symbol formal_parameters) [7206 7224]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [7189 7342])
+                    ("initDateBox" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("dateBox" variable (:type "DateBox") (reparse-symbol formal_parameters) [7371 7386]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [7346 8472])
+                    ("initRanges" function
+                       (:typemodifiers ("private")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [8476 9499])
+                    ("makeStandardRange" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("range" variable (:type "DateRange") (reparse-symbol formal_parameters) [9540 9555])
+                            ("lastDay" variable (:type "LocalDate") (reparse-symbol formal_parameters) [9557 9574]))                          
+                        :type "FocusPanel")
+                        (reparse-symbol class_member_declaration) [9503 10396])
+                    ("makeCustomRange" function
+                       (:typemodifiers ("private")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [10400 10944])
+                    ("daysBetween" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("startDate" variable (:type "LocalDate") (reparse-symbol formal_parameters) [10972 10991])
+                            ("endDate" variable (:type "LocalDate") (reparse-symbol formal_parameters) [10993 11010]))                          
+                        :type "int")
+                        (reparse-symbol class_member_declaration) [10948 11329])
+                    ("getFirstAvailableDate" function (:constructor-flag t) (reparse-symbol class_member_declaration) [11359 11419]))                  
+                :type "class")
+                nil [2076 11421]))          
+    :file "DatePickerPopup.java"
+    :pointmax 11341
+    :fsize 11421
+    :lastmodtime '(21714 39888 0 0)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!google!src!cloud!adamgeorgiou!c1!google3!java!com!google!contentads!xfa!verification!frontend!client!widget!datepicker!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )

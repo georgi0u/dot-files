@@ -1,0 +1,34 @@
+;; Object common/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "common/"
+  :tables (list 
+   (semanticdb-table "BUILD"
+    :major-mode 'google3-build-mode
+    :tags 
+        '( ("package" code nil nil [1 71])
+            ("js_library" code nil nil [231 578])
+            ("js_library" code nil nil [580 748])
+            ("js_library" code nil nil [750 862])
+            ("js_library" code nil nil [864 1189])
+            ("js_library" code nil nil [1191 1311])
+            ("js_library" code nil nil [1313 1447])
+            ("js_library" code nil nil [1449 1637])
+            ("js_library" code nil nil [1639 1852])
+            ("js_library" code nil nil [1854 1960])
+            ("js_library" code nil nil [1962 2064])
+            ("js_library" code nil nil [2066 2180])
+            ("js_library" code nil nil [2182 2476])
+            ("js_library" code nil nil [2478 2578])
+            ("filegroup" code nil nil [2580 2642])
+            ("filegroup" code nil nil [2644 2715]))          
+    :file "BUILD"
+    :pointmax 2874
+    :fsize 2873
+    :lastmodtime '(21763 44597 0 0)
+    :unmatched-syntax '(($EOI 2874 . 2874))
+    )
+   )
+  :file "!google!src!cloud!adamgeorgiou!c2!google3!java!com!google!contentads!xfa!verification!frontend!angular!common!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )
