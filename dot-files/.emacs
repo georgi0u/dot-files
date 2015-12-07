@@ -8,6 +8,8 @@
 
 (when (>= emacs-major-version 24)
   (load "less-css-mode"))
+(setq css-indent-offset 2)
+
 (load "markdown-mode")
 
 ;; Variable Customizations
@@ -30,7 +32,7 @@
  '(inhibit-startup-screen t)
  '(safe-local-variable-values (quote ((c-file-offsets (arglist-intro . +) (arglist-close . 0)) (c-file-offsets (arglist-intro . ++) (arglist-close . 0)))))
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
- '(tab-width 8)
+ '(tab-width 2)
  '(vc-follow-symlinks t))
 
 ;;=====Get back a line of code!====
@@ -52,6 +54,10 @@
 ;; Mice
 (require 'mouse) 
 (xterm-mouse-mode 1)
+
+;; VCS
+(require 'git)
+(require 'git-blame)
 
 ;; I don't have any lost love for the <insert> key, so disable it
 (global-set-key [insert] (lambda () (interactive)))
@@ -168,6 +174,7 @@
 (require 'go-mode)
 (require 'soy-mode)
 (require 'protobuf-mode)
+(require 'dart-mode)
 
 ;; =========== auto mode list ================
 (add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
@@ -180,12 +187,12 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\README\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
 
 
 ;; ============= Whitespace mode ===============
 (require 'whitespace)
 
-(setq whitespace-trailing-regexp " \\(\\(\t\\| \\|\xA0\\|\x8A0\\|\x920\\|\xE20\\|\xF20\\)+\\)$")
 (setq whitespace-style '(face empty tabs trailing indentation space-before-tab space-after-tab lines-tail))
 
 (defun eighty-char-limit-hook ()
@@ -248,3 +255,8 @@
 (setq initial-major-mode 'markdown-mode)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+(add-hook 'server-visit-hook 'xterm-mouse-mode)
+
+(setq uniquify-buffer-name-style 'forward)
+(require 'uniquify)

@@ -4,7 +4,7 @@ if [[ -z "$PS1" ]]; then
 fi
 
 # Short command aliases
-alias e="emacsclient -c -nw"
+alias e="emacsclient -t -nw"
 alias emacs="emacs -nw"
 alias eamcs="emacs -nw"
 alias emac="emacs -nw"
@@ -28,35 +28,29 @@ alias wls="watch -n.2 ls"
 alias wll="watch -n.2 ls -l"
 alias ssh="ssh -q"
 alias tm="tmux -u"
-alias ta="tmux -u attach -d"
+alias ta="tmux -u attach -d -t scratch || tmux -u new-session -s scratch"
 alias curl="curl --silent"
 
 # Prompt Stuff
-function get_box_level_color() { echo '%F{9}' }
-function get_dir_level_color() { echo "%F{6}" }
-function get_vcs_info() { echo "" }
+function get_box_level_color() { echo '%F{250}' }
+function get_dir_level_color() { echo '%F{6}' }
+function get_vcs_info() { echo 'asdasdasd' }
+function get_dir_info() { echo '%d' }
 
 function get_prompt() {
-    username="%F{10}%n%f"
-    hostname=`get_box_level_color`"%M%f"
-    vcs_info="%F{3}"`get_vcs_info`"%f"
-    current_directory=`get_dir_level_color`"%d%f"
-    prompt="%(1j.%F{5}%j.>)%f"
-    time="%*%f"
+    username='%F{250}%n%f'
+    hostname=`get_box_level_color`'%M%f'
+    vcs_info=`get_vcs_info`'%f'
+    current_directory=`get_dir_level_color``get_dir_info`'%f'
+    prompt='%(1j.%F{5}%j.>)%f'
 
     if [ -z "$VIRTUAL_ENV" ]; then
-        virtual_env=""
+        virtual_env=''
     else
-        virtual_env="%F{1}(VIRTUAL ENVIRONMENT ACTIVE)%f\n"
+        virtual_env='%F{1}(VIRTUAL ENVIRONMENT ACTIVE)%f\n'
     fi
 
-    echo "${virtual_env}$username is on...\n$hostname in...\n$vcs_info$current_directory doing...\n$prompt ";
-    
-}
-
-PROMPT=`get_prompt`
-function precmd() {
-    PROMPT=`get_prompt`;
+    echo "${virtual_env}$username $hostname\n$vcs_info%f$current_directory \n$prompt ";
 }
 
 # Set less options
@@ -96,7 +90,7 @@ export REPORTTIME=3
 # Zsh spelling correction options
 setopt CORRECT
 
-# Prompts for confirmation after 'rm *' etc
+# 4Prompts for confirmation after 'rm *' etc
 # Helps avoid mistakes like 'rm * o' when 'rm *.o' was intended
 setopt RM_STAR_WAIT
 
@@ -185,3 +179,11 @@ autoload -U zmv
 # Local ZSH file
 LOCAL_OPTIONS=${HOME}"/.local_zshrc"
 if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
+
+setopt prompt_subst
+PS1=$(get_prompt)
+precmd () { PS1=$(get_prompt) }
+autoload -U promptinit
+promptinit
+
+clear
