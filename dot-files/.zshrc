@@ -32,15 +32,22 @@ alias ta="tmux -u attach -d -t scratch || tmux -u new-session -s scratch"
 alias curl="curl --silent"
 
 # Prompt Stuff
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats '%F{159}(%s) %F{155}%b%f %a'
+zstyle ':vcs_info:*' formats '%F{159}(%s) %F{155}%b%f '
+zstyle ':vcs_info:*' enable git p4
 function get_box_level_color() { echo '%F{250}' }
 function get_dir_level_color() { echo '%F{6}' }
-function get_vcs_info() { echo 'asdasdasd' }
+function get_vcs_info() { 
+  vcs_info
+  echo "${vcs_info_msg_0_}"
+}
 function get_dir_info() { echo '%d' }
-
 function get_prompt() {
     username='%F{250}%n%f'
     hostname=`get_box_level_color`'%M%f'
-    vcs_info=`get_vcs_info`'%f'
+    vcs_info=`get_vcs_info`
     current_directory=`get_dir_level_color``get_dir_info`'%f'
     prompt='%(1j.%F{5}%j.>)%f'
 
