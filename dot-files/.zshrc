@@ -34,8 +34,8 @@ alias curl="curl --silent"
 # Prompt Stuff
 setopt prompt_subst
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats '%F{159}(%s) %F{155}%b%f %a'
-zstyle ':vcs_info:*' formats '%F{159}(%s) %F{155}%b%f '
+zstyle ':vcs_info:*' actionformats '%F{159}(%s) %F{155}%r%f:%F{155}%b%f %a'
+zstyle ':vcs_info:*' formats '%F{159}(%s) %F{155}%r%f:%F{155}%b%f '
 zstyle ':vcs_info:*' enable git p4
 function get_box_level_color() { echo '%F{250}' }
 function get_dir_level_color() { echo '%F{6}' }
