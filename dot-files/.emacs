@@ -9,7 +9,6 @@
 (when (>= emacs-major-version 24)
   (load "less-css-mode"))
 (setq css-indent-offset 2)
-
 (load "markdown-mode")
 
 ;; Variable Customizations
@@ -28,12 +27,12 @@
  '(gpm-mouse-mode nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-tail-colors (quote (("#eee8d5" . 0) ("#B4C342" . 20) ("#69CABF" . 30) ("#69B7F0" . 50) ("#DEB542" . 60) ("#F2804F" . 70) ("#F771AC" . 85) ("#eee8d5" . 100))))
- '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(safe-local-variable-values (quote ((c-file-offsets (arglist-intro . +) (arglist-close . 0)) (c-file-offsets (arglist-intro . ++) (arglist-close . 0)))))
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
- '(tab-width 2)
- '(vc-follow-symlinks t))
+ '(vc-follow-symlinks t)
+ '(js-indent-level 2)
+ '(indent-tabs-mode nil))
 
 ;;=====Get back a line of code!====
 (menu-bar-mode 0)
@@ -200,6 +199,7 @@
 
 (defun hundred-char-limit-hook ()
   (setq whitespace-line-column 100))
+
 
 (add-hook 'python-mode-hook 'whitespace-mode)
 (add-hook 'python-mode-hook 'eighty-char-limit-hook)
