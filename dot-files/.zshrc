@@ -34,8 +34,8 @@ alias curl="curl --silent"
 # Prompt Stuff
 setopt prompt_subst
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats '%F{159}(%s) %F{155}%r%f:%F{155}%b%f %F{139}%a%f '
-zstyle ':vcs_info:*' formats '%F{159}(%s) %F{155}%r%f:%F{155}%b%f '
+zstyle ':vcs_info:*' actionformats '%F{159}%s %F{155}%r%f:%F{155}%b%f %F{139}%a%f '
+zstyle ':vcs_info:*' formats '%F{159}%s %F{155}%r%f:%F{155}%b%f '
 zstyle ':vcs_info:*' enable git p4
 function get_box_level_color() { echo '%F{250}' }
 function get_dir_level_color() { echo '%F{6}' }
@@ -54,10 +54,10 @@ function get_prompt() {
     if [ -z "$VIRTUAL_ENV" ]; then
         virtual_env=''
     else
-        virtual_env='%F{1}(VIRTUAL ENVIRONMENT ACTIVE)%f\n'
+        virtual_env='%F{1}vEnv%f '
     fi
 
-    echo "${virtual_env}$username $hostname\n$vcs_info%f$current_directory \n$prompt ";
+    echo "$username $hostname\n${virtual_env}$vcs_info%f$current_directory \n$prompt ";
 }
 
 # Set less options
