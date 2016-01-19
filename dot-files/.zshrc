@@ -66,8 +66,8 @@ export LESS="--ignore-case --LONG-PROMPT --QUIET -m --RAW-CONTROL-CHARS --quit-i
 export LESSHISTFILE='-'
 
 # Set EDITOR
-export EDITOR="vi"
-export ALTERNATE_EDITOR="emacs24 -nw"
+export EDITOR="emacs -nw"
+export ALTERNATE_EDITOR="emacs -nw"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
