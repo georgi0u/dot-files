@@ -1,6 +1,6 @@
-.emacs.d/auto-save-list
-.emacs.d/backup
-.emacs~
-.local_bash_rc
-.local_emacs.d
-.local_emacs
+dot-files/.emacs.d/auto-save-list/**
+dot-files/.emacs.d/backup
+dot-files/.emacs~
+dot-files/.local_bash_rc
+dot-files/.local_emacs.d
+dot-files/.local_emacs
