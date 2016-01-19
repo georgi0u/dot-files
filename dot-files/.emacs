@@ -6,10 +6,14 @@
 ;; Local Emacs Stuff
 (when (file-exists-p "~/.local_emacs") (load "~/.local_emacs"))
 
+;; Third party language modes
 (when (>= emacs-major-version 24)
   (load "less-css-mode"))
-(setq css-indent-offset 2)
 (load "markdown-mode")
+(require 'go-mode)
+(require 'soy-mode)
+(require 'protobuf-mode)
+(require 'dart-mode)
 
 ;; Variable Customizations
 (custom-set-variables
@@ -32,19 +36,29 @@
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
  '(vc-follow-symlinks t)
  '(js-indent-level 2)
- '(indent-tabs-mode nil))
+ '(indent-tabs-mode nil)
+ '(css-indent-offset 2))
 
-;;=====Get back a line of code!====
+;; No scratch message
+(setq initial-scratch-message "")
+
+;; Initial Mode is Markdown
+(setq initial-major-mode 'markdown-mode)
+
+;; yes or no switched to y or n
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Get back a line of code
 (menu-bar-mode 0)
 
 ;; Make sure DEL key does what I want
 (when window-system
   (normal-erase-is-backspace-mode 1))
 
-;;=====Goto Line===================
+;; Goto line
 (global-set-key "\C-xg" 'goto-line)
 
-(global-unset-key "")
+;; Comment box
 (global-set-key "\C-cc" 'comment-box)
 
 ;; Stop C-[ (i.e. escape) from closing buffers 
@@ -54,6 +68,9 @@
 (require 'mouse) 
 (xterm-mouse-mode 1)
 
+;; highlight brackets
+(show-paren-mode 1)
+
 ;; VCS
 (require 'git)
 (require 'git-blame)
@@ -62,47 +79,50 @@
 (global-set-key [insert] (lambda () (interactive)))
 (global-set-key [insertchar] (lambda () (interactive)))
 
-;;========LOOK AT THE PRETTY COLORS!=========
-(defun terminal-init-screen ()
-  "Terminal initialization function for screen."
-  ;; Use the xterm color initialization code.
-  (load "term/xterm")
-  (xterm-register-default-colors)
-  (tty-set-up-initial-frame-faces))
+;; Prevent Emacs from making backup files
+(setq make-backup-files nil) 
 
-(add-hook 'c-mode-hook 'flyspell-prog-mode)
-(add-hook 'c++-mode-hook 'flyspell-prog-mode)
-(add-hook 'perl-mode-hook 'flyspell-prog-mode)
-(add-hook 'python-mode-hook 'flyspell-prog-mode)
-(add-hook 'php-mode-hook 'flyspell-prog-mode)
-(add-hook 'javascript-mode-hook 'flyspell-prog-mode)
-(add-hook 'html-mode-hook 'flyspell-prog-mode)
-(add-hook 'sh-mode-hook 'flyspell-prog-mode)
-(add-hook 'css-mode-hook 'flyspell-prog-mode)
-(add-hook 'markdown-mode-hook 'flyspell-mode)
-(add-hook 'text-mode-hook 'flyspell-mode)
+;; f5 toggles whitespace mode
+(global-set-key [f5] 'whitespace-mode)
 
-;;=====Navigation stuff=====
+;; Fuck you tutorial, etc.
+(global-set-key "\C-ht" nil)
+(global-set-key "\C-hT" nil)
+(global-set-key "\C-h\C-t" nil)
+
+;; Disable upcase region
+(put 'upcase-region 'disabled nil)
+
+;; Make buffer names unique
+(setq uniquify-buffer-name-style 'forward)
+(require 'uniquify)
+
+;; ediff
+(setq ediff-split-window-function 'split-window-horizontally) 
+(setq ediff-merge-split-window-function 'split-window-horizontally)
+
+;; Transpose windows
+(require 'transpose-frame)
+(global-set-key (kbd "\C-x SPC") 'transpose-frame)
+(global-set-key (kbd "\C-x \C-@") 'flop-frame) ;; for whatever reason, the second control+space gets registered as an `@`
+
+;; Navigation stuff
 (defun select-next-window ()
   "Switch to the next window"
   (interactive)
   (select-window (next-window)))
-
 (defun select-previous-window ()
   "Switch to the previous window"
   (interactive)
   (select-window (previous-window)))
-
 (defun five-previous-lines() 
   (interactive)
   (loop for i from 1 to 5 do (previous-line))
   )
-
 (defun five-next-lines() 
   (interactive)
   (loop for i from 1 to 5 do (next-line))
   )
-
 (when (>= emacs-major-version 24)
   (define-key input-decode-map "\e\eOA" [(meta up)])
   (define-key input-decode-map "\e\eOB" [(meta down)])
@@ -112,13 +132,7 @@
   (global-set-key (kbd "C-M-p") 'five-previous-lines)
   )
 
-;; highlight brackets
-(show-paren-mode 1)
-
-;; ========== Prevent Emacs from making backup files ==========
-(setq make-backup-files nil) 
-
-;; Show line numbers
+;; Line number stuff
 (eval-after-load 'linum
   '(progn
      (defface adams-linum
@@ -151,31 +165,40 @@
 
 
      (setq linum-format 'linum-format-func)))
-
 (global-set-key [f6] 'global-linum-mode)
-(global-set-key [f5] 'whitespace-mode)
-(global-set-key [f9] 'align-regexp)
 
-(put 'upcase-region 'disabled nil)
+;; Whitespace stuff
+(require 'whitespace)
+(setq whitespace-style '(face empty tabs trailing indentation space-before-tab space-after-tab lines-tail))
+(defun eighty-char-limit-hook ()
+  (setq whitespace-line-column 80))
+(defun hundred-char-limit-hook ()
+  (setq whitespace-line-column 100))
+(add-hook 'python-mode-hook 'whitespace-mode)
+(add-hook 'python-mode-hook 'eighty-char-limit-hook)
+(add-hook 'c-mode-hook 'whitespace-mode)
+(add-hook 'c-mode-hook 'eighty-char-limit-hook)
+(add-hook 'javascript-mode-hook 'whitespace-mode)
+(add-hook 'javascript-mode-hook 'eighty-char-limit-hook)
+(add-hook 'c++-mode-hook 'whitespace-mode)
+(add-hook 'c++-mode-hook 'eighty-char-limit-hook)
+(add-hook 'java-mode-hook 'whitespace-mode)
+(add-hook 'java-mode-hook 'hundred-char-limit-hook)
 
+;; Flyspell
+(add-hook 'c-mode-hook 'flyspell-prog-mode)
+(add-hook 'c++-mode-hook 'flyspell-prog-mode)
+(add-hook 'perl-mode-hook 'flyspell-prog-mode)
+(add-hook 'python-mode-hook 'flyspell-prog-mode)
+(add-hook 'php-mode-hook 'flyspell-prog-mode)
+(add-hook 'javascript-mode-hook 'flyspell-prog-mode)
+(add-hook 'html-mode-hook 'flyspell-prog-mode)
+(add-hook 'sh-mode-hook 'flyspell-prog-mode)
+(add-hook 'css-mode-hook 'flyspell-prog-mode)
+(add-hook 'markdown-mode-hook 'flyspell-mode)
+(add-hook 'text-mode-hook 'flyspell-mode)
 
-;; ======== Transpose windows =============
-(require 'transpose-frame)
-(global-set-key (kbd "\C-x SPC") 'transpose-frame)
-(global-set-key (kbd "\C-x \C-@") 'flop-frame) ;; for whatever reason, the second control+space gets registered as an `@`
-
-
-;; ========== ediff ==========
-(setq ediff-split-window-function 'split-window-horizontally) 
-(setq ediff-merge-split-window-function 'split-window-horizontally)
-
-;; =========== third party language modes ====
-(require 'go-mode)
-(require 'soy-mode)
-(require 'protobuf-mode)
-(require 'dart-mode)
-
-;; =========== auto mode list ================
+;; auto mode list
 (add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 (add-to-list 'auto-mode-alist '("\\.hpp\\'" . c++-mode))
@@ -188,75 +211,24 @@
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
 
+;;;;;;;;;;;;;;;
+;; to delete ;;
+;;;;;;;;;;;;;;;
 
-;; ============= Whitespace mode ===============
-(require 'whitespace)
-
-(setq whitespace-style '(face empty tabs trailing indentation space-before-tab space-after-tab lines-tail))
-
-(defun eighty-char-limit-hook ()
-  (setq whitespace-line-column 80))
-
-(defun hundred-char-limit-hook ()
-  (setq whitespace-line-column 100))
-
-
-(add-hook 'python-mode-hook 'whitespace-mode)
-(add-hook 'python-mode-hook 'eighty-char-limit-hook)
-
-(add-hook 'c-mode-hook 'whitespace-mode)
-(add-hook 'c-mode-hook 'eighty-char-limit-hook)
-
-(add-hook 'javascript-mode-hook 'whitespace-mode)
-(add-hook 'javascript-mode-hook 'eighty-char-limit-hook)
-
-(add-hook 'c++-mode-hook 'whitespace-mode)
-(add-hook 'c++-mode-hook 'eighty-char-limit-hook)
-
-(add-hook 'java-mode-hook 'whitespace-mode)
-(add-hook 'java-mode-hook 'hundred-char-limit-hook)
-
-;; ============= Fuck you tutorial, etc. ===========
-(global-set-key "\C-ht" nil)
-(global-set-key "\C-hT" nil)
-(global-set-key "\C-h\C-t" nil)
-
-;; =========== Emacs server/client =================
-(defun server-remove-kill-buffer-hook () 
-  (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
-(add-hook 'server-visit-hook 'server-remove-kill-buffer-hook)
-
-;; ============== Org Mode =======================
-(add-to-list 'auto-mode-alist '("\\.plan\\'" . org-mode))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(setq org-log-done 'time)
-(if (eq system-uses-terminfo t)                                                 
-    (progn                               ;; PuTTY hack - needs to be in SCO mode 
-      (define-key key-translation-map [\e] [\M])                                
-      (define-key input-decode-map "\e[D" [S-left])                             
-      (define-key input-decode-map "\e[C" [S-right])                            
-      (define-key input-decode-map "\e[A" [S-up])                               
-      (define-key input-decode-map "\e[B" [S-down])))
+;;========LOOK AT THE PRETTY COLORS!=========
+;; (defun terminal-init-screen ()
+;;   "Terminal initialization function for screen."
+;;   ;; Use the xterm color initialization code.
+;;   (load "term/xterm")
+;;   (xterm-register-default-colors)
+;;   (tty-set-up-initial-frame-faces))
 
 ;; handle tmux's xterm-keys
 ;; put the following line in your ~/.tmux.conf:
 ;;   setw -g xterm-keys on
-(define-key key-translation-map (kbd "M-[ 1 ; 2 A") (kbd "S-<up>"))
-(define-key key-translation-map (kbd "M-[ 1 ; 2 B") (kbd "S-<down>"))
-(define-key key-translation-map (kbd "M-[ 1 ; 2 C") (kbd "S-<right>"))
-(define-key key-translation-map (kbd "M-[ 1 ; 2 D") (kbd "S-<left>"))
+;; (define-key key-translation-map (kbd "M-[ 1 ; 2 A") (kbd "S-<up>"))
+;; (define-key key-translation-map (kbd "M-[ 1 ; 2 B") (kbd "S-<down>"))
+;; (define-key key-translation-map (kbd "M-[ 1 ; 2 C") (kbd "S-<right>"))
+;; (define-key key-translation-map (kbd "M-[ 1 ; 2 D") (kbd "S-<left>"))
 
-;; No scratch message
-(setq initial-scratch-message "")
-
-;; Initial Mode is Markdown
-(setq initial-major-mode 'markdown-mode)
-
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-(add-hook 'server-visit-hook 'xterm-mouse-mode)
-
-(setq uniquify-buffer-name-style 'forward)
-(require 'uniquify)
+;;(add-hook 'server-visit-hook 'xterm-mouse-mode)
