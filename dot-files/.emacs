@@ -70,6 +70,9 @@
 (require 'mouse) 
 (xterm-mouse-mode 1)
 
+;; Make emacs mouse mode work when emacs is open in a tmux session
+(add-hook 'server-visit-hook 'xterm-mouse-mode)
+
 ;; highlight brackets
 (show-paren-mode 1)
 
@@ -108,6 +111,11 @@
 (global-set-key (kbd "\C-x SPC") 'transpose-frame)
 (global-set-key (kbd "\C-x \C-@") 'flop-frame) ;; for whatever reason, the second control+space gets registered as an `@`
 
+;; Remove annoying message that prevents you from killing buffers when in emacsclient
+(defun server-remove-kill-buffer-hook () 
+  (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
+(add-hook 'server-visit-hook 'server-remove-kill-buffer-hook)
+
 ;; Navigation stuff
 (defun select-next-window ()
   "Switch to the next window"
@@ -142,20 +150,16 @@
             :background "#333"))
        nil 
        :group 'linum)
-
      (defface darker
        `((t :inherit 'linum
             :background "#333"))
        nil 
        :group 'linum)
-
-
      (defface linum-leading-zero
        `((t :inherit 'adams-linum
             :foreground  "#333"))
        "Face for displaying leading zeroes for line numbers in display margin."
        :group 'linum)
-
      (defun linum-format-func (line)
        (let ((w (length
                  (number-to-string (count-lines (point-min) (point-max))))))
@@ -164,8 +168,6 @@
                               'face 'linum-leading-zero)
                   (propertize (number-to-string line) 'face 'adams-linum)
                   ) (propertize " " 'face 'darker))))
-
-
      (setq linum-format 'linum-format-func)))
 (global-set-key [f6] 'global-linum-mode)
 
@@ -232,5 +234,3 @@
 ;; (define-key key-translation-map (kbd "M-[ 1 ; 2 B") (kbd "S-<down>"))
 ;; (define-key key-translation-map (kbd "M-[ 1 ; 2 C") (kbd "S-<right>"))
 ;; (define-key key-translation-map (kbd "M-[ 1 ; 2 D") (kbd "S-<left>"))
-
-;;(add-hook 'server-visit-hook 'xterm-mouse-mode)
