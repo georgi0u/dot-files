@@ -37,7 +37,7 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' actionformats '%F{159}%s %F{155}%r%f:%F{155}%b%f %F{139}%a%f '
 zstyle ':vcs_info:*' formats '%F{159}%s %F{155}%r%f:%F{155}%b%f '
 zstyle ':vcs_info:*' enable git p4
-function get_box_level_color() { echo '%F{250}' }
+function get_box_level_color() { echo '%F{220}' }
 function get_dir_level_color() { echo '%F{6}' }
 function get_vcs_info() { 
   vcs_info
@@ -45,7 +45,7 @@ function get_vcs_info() {
 }
 function get_dir_info() { echo '%d' }
 function get_prompt() {
-    username='%F{250}%n%f'
+    username='%F{220}%n%f'
     hostname=`get_box_level_color`'%M%f'
     vcs_info=`get_vcs_info`
     current_directory=`get_dir_level_color``get_dir_info`'%f'
