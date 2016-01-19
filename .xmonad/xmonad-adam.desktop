@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Name=XMonad-Adam
-Comment=A Tiling Window Manager
-Exec=/usr/bin/xmonad.start
-Type=XSession
-TryExec=/usr/bin/gnome-session
-
