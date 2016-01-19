@@ -15,7 +15,6 @@
 (load "markdown-mode")
 (require 'go-mode)
 (require 'soy-mode)
-(require 'protobuf-mode)
 (require 'dart-mode)
 
 ;; Variable Customizations
