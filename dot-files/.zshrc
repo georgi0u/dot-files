@@ -39,13 +39,14 @@ zstyle ':vcs_info:*' formats '%F{159}%s %F{155}%r%f:%F{155}%b%f '
 zstyle ':vcs_info:*' enable git p4
 function get_box_level_color() { echo '%F{220}' }
 function get_dir_level_color() { echo '%F{6}' }
+function get_hostname() { echo '%M' }
 function get_vcs_info() { 
   vcs_info
   echo "${vcs_info_msg_0_}"
 }
 function get_dir_info() { echo '%d' }
 function get_prompt() {
-    hostname=`get_box_level_color`'%M%f'
+    hostname=`get_box_level_color``get_hostname`'%f'
     vcs_info=`get_vcs_info`
     current_directory=`get_dir_level_color``get_dir_info`'%f'
     prompt='%(1j.%F{5}%j.>)%f'
