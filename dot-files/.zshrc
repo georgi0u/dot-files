@@ -45,7 +45,6 @@ function get_vcs_info() {
 }
 function get_dir_info() { echo '%d' }
 function get_prompt() {
-    username='%F{220}%n%f'
     hostname=`get_box_level_color`'%M%f'
     vcs_info=`get_vcs_info`
     current_directory=`get_dir_level_color``get_dir_info`'%f'
@@ -57,7 +56,7 @@ function get_prompt() {
         virtual_env='%F{1}vEnv%f '
     fi
 
-    echo "$username $hostname\n${virtual_env}$vcs_info%f$current_directory \n$prompt ";
+    echo "$hostname\n${virtual_env}$vcs_info%f$current_directory \n$prompt ";
 }
 
 # Set less options
