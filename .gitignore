@@ -4,3 +4,4 @@ dot-files/.emacs~
 dot-files/.local_bash_rc
 dot-files/.local_emacs.d
 dot-files/.local_emacs
+*.elc

@@ -1,5 +1,8 @@
 ;; Set Load Path
 (add-to-list `load-path "~/.emacs.d/lisp")
+;; Byte compile everything
+(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
+
 (when (>= emacs-major-version 24)
   (add-to-list `custom-theme-load-path "~/.emacs.d/themes/"))
 
