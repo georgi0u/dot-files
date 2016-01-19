@@ -28,7 +28,7 @@ alias wls="watch -n.2 ls"
 alias wll="watch -n.2 ls -l"
 alias ssh="ssh -q"
 alias tm="tmux -u"
-alias ta="tmux -u attach -d -t scratch || tmux -u new-session -s scratch"
+alias ta="tmux -u attach -d -t _scratch || tmux -u new-session -s _scratch"
 alias curl="curl --silent"
 
 # Prompt Stuff
@@ -66,8 +66,8 @@ export LESS="--ignore-case --LONG-PROMPT --QUIET -m --RAW-CONTROL-CHARS --quit-i
 export LESSHISTFILE='-'
 
 # Set EDITOR
-export EDITOR="emacs24 -nw"
-export ALTERNATE_EDITOR="emacs -nw"
+export EDITOR="vi"
+export ALTERNATE_EDITOR="emacs24 -nw"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
@@ -192,5 +192,3 @@ PS1=$(get_prompt)
 precmd () { PS1=$(get_prompt) }
 autoload -U promptinit
 promptinit
-
-clear
