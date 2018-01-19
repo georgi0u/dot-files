@@ -58,6 +58,8 @@ function get_prompt() {
     fi
 
     echo "[$hostname]\n${virtual_env}$vcs_info%f$current_directory \n$prompt ";
+
+    cd .
 }
 
 # Set less options
@@ -89,7 +91,6 @@ setopt HIST_VERIFY
 
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
-export GREP_OPTIONS="--color=auto"
 
 # Say how long a command took, if it took more than 30 seconds
 export REPORTTIME=3

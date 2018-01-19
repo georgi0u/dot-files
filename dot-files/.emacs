@@ -1,4 +1,11 @@
 ;; Set Load Path
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list `load-path "~/.emacs.d/lisp")
 ;; Byte compile everything
 (byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
@@ -13,6 +20,7 @@
 (when (>= emacs-major-version 24)
   (load "less-css-mode"))
 (load "markdown-mode")
+(load "projectile-0.14.0")
 (require 'go-mode)
 (require 'soy-mode)
 (require 'dart-mode)
@@ -23,23 +31,48 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["#002451" "#ff9da4" "#d1f1a9" "#ffeead" "#bbdaff" "#ebbbff" "#bbdaff" "#ffffff"])
- '(ansi-term-color-vector [unspecified "#002451" "#ff9da4" "#d1f1a9" "#ffeead" "#bbdaff" "#ebbbff" "#bbdaff" "#ffffff"])
+ '(ansi-color-names-vector
+   ["#002451" "#ff9da4" "#d1f1a9" "#ffeead" "#bbdaff" "#ebbbff" "#bbdaff" "#ffffff"])
+ '(ansi-term-color-vector
+   [unspecified "#002451" "#ff9da4" "#d1f1a9" "#ffeead" "#bbdaff" "#ebbbff" "#bbdaff" "#ffffff"])
  '(column-number-mode t)
+ '(css-indent-offset 2)
  '(custom-enabled-themes (quote (tango-dark)))
- '(custom-safe-themes (quote ("8261f6e303524a9131536b51d525ea7b57d9bf253eb5359ad8f7242f90851e2c" "b63a3999093a513e2f263b2177a00cc85d945c0b98ee90d18fe2edcbee2a4299" "07b1b3a4854da0ed3a95772ed21da55a0d656ac4646596d4e80a71da5d8112b1" "5592dca15c2fb4f011ee3781eb6c44d13d4fa03d019de50ea34b13d667f2bf0a" "fa10d9e1fe9c534bb87bf1a6d8601ad42b1f11f43715a6b2929a5ecc91d4f5c9" "b12a903ec4c7ce0936dc394aa91788f91c73b33ef4b1a9d8acf94b6db7e144b4" "ca7fd88fa81ce1bdd1101dee25044967f037165af1fa29d7c2c78c4c4f069a85" "7a32ae82b734203858620bd2fcdfd8ee88b061d531abb38181b14f23cd62f563" "298561398e160a6bbb4bbd9a5d144bd76c8b63421fb13ec75edaa2f7459bb96b" "bf7ed640479049f1d74319ed004a9821072c1d9331bc1147e01d22748c18ebdf" "d677ef584c6dfc062B97901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "e439d894bf9406baf73056cf7e3c913ee5c794b6adadbbb9f614aebed0fd9ce7" "cf2bb5e8046ca363183c87e8d33932f2a76a3d705b9db2721631777bbce92968" "4870e6cb6f0a70c14ee73db30b69a8a1f08d6ec9a689c366e88636fb81e8022d" default)))
+ '(custom-safe-themes
+   (quote
+    ("8261f6e303524a9131536b51d525ea7b57d9bf253eb5359ad8f7242f90851e2c" "b63a3999093a513e2f263b2177a00cc85d945c0b98ee90d18fe2edcbee2a4299" "07b1b3a4854da0ed3a95772ed21da55a0d656ac4646596d4e80a71da5d8112b1" "5592dca15c2fb4f011ee3781eb6c44d13d4fa03d019de50ea34b13d667f2bf0a" "fa10d9e1fe9c534bb87bf1a6d8601ad42b1f11f43715a6b2929a5ecc91d4f5c9" "b12a903ec4c7ce0936dc394aa91788f91c73b33ef4b1a9d8acf94b6db7e144b4" "ca7fd88fa81ce1bdd1101dee25044967f037165af1fa29d7c2c78c4c4f069a85" "7a32ae82b734203858620bd2fcdfd8ee88b061d531abb38181b14f23cd62f563" "298561398e160a6bbb4bbd9a5d144bd76c8b63421fb13ec75edaa2f7459bb96b" "bf7ed640479049f1d74319ed004a9821072c1d9331bc1147e01d22748c18ebdf" "d677ef584c6dfc062B97901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "e439d894bf9406baf73056cf7e3c913ee5c794b6adadbbb9f614aebed0fd9ce7" "cf2bb5e8046ca363183c87e8d33932f2a76a3d705b9db2721631777bbce92968" "4870e6cb6f0a70c14ee73db30b69a8a1f08d6ec9a689c366e88636fb81e8022d" default)))
  '(fci-rule-color "#eee8d5")
  '(global-linum-mode 1)
  '(gpm-mouse-mode nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
- '(highlight-tail-colors (quote (("#eee8d5" . 0) ("#B4C342" . 20) ("#69CABF" . 30) ("#69B7F0" . 50) ("#DEB542" . 60) ("#F2804F" . 70) ("#F771AC" . 85) ("#eee8d5" . 100))))
- '(inhibit-startup-screen t)
- '(safe-local-variable-values (quote ((c-file-offsets (arglist-intro . +) (arglist-close . 0)) (c-file-offsets (arglist-intro . ++) (arglist-close . 0)))))
- '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
- '(vc-follow-symlinks t)
- '(js-indent-level 2)
+ '(highlight-tail-colors
+   (quote
+    (("#eee8d5" . 0)
+     ("#B4C342" . 20)
+     ("#69CABF" . 30)
+     ("#69B7F0" . 50)
+     ("#DEB542" . 60)
+     ("#F2804F" . 70)
+     ("#F771AC" . 85)
+     ("#eee8d5" . 100))))
  '(indent-tabs-mode nil)
- '(css-indent-offset 2))
+ '(inhibit-startup-screen t)
+ '(js-indent-level 2)
+ '(js2-bounce-indent-p t)
+ '(package-selected-packages (quote (tide)))
+ '(projectile-mode t t)
+ '(safe-local-variable-values
+   (quote
+    ((c-file-offsets
+      (arglist-intro . +)
+      (arglist-close . 0))
+     (c-file-offsets
+      (arglist-intro . ++)
+      (arglist-close . 0)))))
+ '(tab-stop-list
+   (quote
+    (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
+ '(vc-follow-symlinks t))
 
 ;; No scratch message
 (setq initial-scratch-message "")
@@ -127,11 +160,11 @@
   (select-window (previous-window)))
 (defun five-previous-lines() 
   (interactive)
-  (loop for i from 1 to 5 do (previous-line))
+  (cl-loop for i from 1 to 5 do (previous-line))
   )
 (defun five-next-lines() 
   (interactive)
-  (loop for i from 1 to 5 do (next-line))
+  (cl-loop for i from 1 to 5 do (next-line))
   )
 (when (>= emacs-major-version 24)
   (define-key input-decode-map "\e\eOA" [(meta up)])
@@ -217,23 +250,9 @@
 (add-to-list 'auto-mode-alist '("\\README\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
-
-;;;;;;;;;;;;;;;
-;; to delete ;;
-;;;;;;;;;;;;;;;
-
-;;========LOOK AT THE PRETTY COLORS!=========
-;; (defun terminal-init-screen ()
-;;   "Terminal initialization function for screen."
-;;   ;; Use the xterm color initialization code.
-;;   (load "term/xterm")
-;;   (xterm-register-default-colors)
-;;   (tty-set-up-initial-frame-faces))
-
-;; handle tmux's xterm-keys
-;; put the following line in your ~/.tmux.conf:
-;;   setw -g xterm-keys on
-;; (define-key key-translation-map (kbd "M-[ 1 ; 2 A") (kbd "S-<up>"))
-;; (define-key key-translation-map (kbd "M-[ 1 ; 2 B") (kbd "S-<down>"))
-;; (define-key key-translation-map (kbd "M-[ 1 ; 2 C") (kbd "S-<right>"))
-;; (define-key key-translation-map (kbd "M-[ 1 ; 2 D") (kbd "S-<left>"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
