@@ -38,7 +38,7 @@ zstyle ':vcs_info:*' actionformats '%F{159}%s %F{155}%r%f:%F{155}%b%f %F{139}%a%
 zstyle ':vcs_info:*' formats '%F{159}%s %F{155}%r%f:%F{155}%b%f '
 zstyle ':vcs_info:*' enable git p4
 function get_box_level_color() { echo '%F{220}' }
-function get_dir_level_color() { echo '%F{6}' }
+function get_dir_level_color() { echo '%F{11}' }
 function get_hostname() { echo '%M' }
 function get_vcs_info() { 
   vcs_info
@@ -49,7 +49,7 @@ function get_prompt() {
     hostname=`get_box_level_color``get_hostname`'%f'
     vcs_info=`get_vcs_info`
     current_directory=`get_dir_level_color``get_dir_info`'%f'
-    prompt='%(1j.%F{5}%j.>)%f'
+    prompt='%(1j.%F{5}%j.⤷)%f'
 
     if [ -z "$VIRTUAL_ENV" ]; then
         virtual_env=''
@@ -57,7 +57,7 @@ function get_prompt() {
         virtual_env='%F{1}vEnv%f '
     fi
 
-    echo "[$hostname]\n${virtual_env}$vcs_info%f$current_directory \n$prompt ";
+    echo "$hostname ${virtual_env}$vcs_info%f$current_directory \n$prompt ";
 
     cd .
 }
