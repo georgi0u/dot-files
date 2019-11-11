@@ -1,5 +1,8 @@
 ;; Set Load Path
 
+(require 'package)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -31,18 +34,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#002451" "#ff9da4" "#d1f1a9" "#ffeead" "#bbdaff" "#ebbbff" "#bbdaff" "#ffffff"])
  '(ansi-term-color-vector
    [unspecified "#002451" "#ff9da4" "#d1f1a9" "#ffeead" "#bbdaff" "#ebbbff" "#bbdaff" "#ffffff"])
  '(column-number-mode t)
  '(css-indent-offset 2)
- '(custom-enabled-themes (quote (tango-dark)))
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-eighties)))
  '(custom-safe-themes
    (quote
-    ("8261f6e303524a9131536b51d525ea7b57d9bf253eb5359ad8f7242f90851e2c" "b63a3999093a513e2f263b2177a00cc85d945c0b98ee90d18fe2edcbee2a4299" "07b1b3a4854da0ed3a95772ed21da55a0d656ac4646596d4e80a71da5d8112b1" "5592dca15c2fb4f011ee3781eb6c44d13d4fa03d019de50ea34b13d667f2bf0a" "fa10d9e1fe9c534bb87bf1a6d8601ad42b1f11f43715a6b2929a5ecc91d4f5c9" "b12a903ec4c7ce0936dc394aa91788f91c73b33ef4b1a9d8acf94b6db7e144b4" "ca7fd88fa81ce1bdd1101dee25044967f037165af1fa29d7c2c78c4c4f069a85" "7a32ae82b734203858620bd2fcdfd8ee88b061d531abb38181b14f23cd62f563" "298561398e160a6bbb4bbd9a5d144bd76c8b63421fb13ec75edaa2f7459bb96b" "bf7ed640479049f1d74319ed004a9821072c1d9331bc1147e01d22748c18ebdf" "d677ef584c6dfc062B97901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "e439d894bf9406baf73056cf7e3c913ee5c794b6adadbbb9f614aebed0fd9ce7" "cf2bb5e8046ca363183c87e8d33932f2a76a3d705b9db2721631777bbce92968" "4870e6cb6f0a70c14ee73db30b69a8a1f08d6ec9a689c366e88636fb81e8022d" default)))
+    ("e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "8261f6e303524a9131536b51d525ea7b57d9bf253eb5359ad8f7242f90851e2c" "b63a3999093a513e2f263b2177a00cc85d945c0b98ee90d18fe2edcbee2a4299" "07b1b3a4854da0ed3a95772ed21da55a0d656ac4646596d4e80a71da5d8112b1" "5592dca15c2fb4f011ee3781eb6c44d13d4fa03d019de50ea34b13d667f2bf0a" "fa10d9e1fe9c534bb87bf1a6d8601ad42b1f11f43715a6b2929a5ecc91d4f5c9" "b12a903ec4c7ce0936dc394aa91788f91c73b33ef4b1a9d8acf94b6db7e144b4" "ca7fd88fa81ce1bdd1101dee25044967f037165af1fa29d7c2c78c4c4f069a85" "7a32ae82b734203858620bd2fcdfd8ee88b061d531abb38181b14f23cd62f563" "298561398e160a6bbb4bbd9a5d144bd76c8b63421fb13ec75edaa2f7459bb96b" "bf7ed640479049f1d74319ed004a9821072c1d9331bc1147e01d22748c18ebdf" "d677ef584c6dfc062B97901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "e439d894bf9406baf73056cf7e3c913ee5c794b6adadbbb9f614aebed0fd9ce7" "cf2bb5e8046ca363183c87e8d33932f2a76a3d705b9db2721631777bbce92968" "4870e6cb6f0a70c14ee73db30b69a8a1f08d6ec9a689c366e88636fb81e8022d" default)))
  '(fci-rule-color "#eee8d5")
- '(global-linum-mode 1)
+ '(global-linum-mode nil)
  '(gpm-mouse-mode nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-tail-colors
@@ -59,7 +64,9 @@
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
  '(js2-bounce-indent-p t)
- '(package-selected-packages (quote (tide)))
+ '(package-selected-packages
+   (quote
+    (color-theme-sanityinc-tomorrow solarized-theme tide)))
  '(projectile-mode t t)
  '(safe-local-variable-values
    (quote
@@ -249,6 +256,7 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\README\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.gss\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
