@@ -193,3 +193,4 @@ PS1=$(get_prompt)
 precmd () { PS1=$(get_prompt) }
 autoload -U promptinit
 promptinit
+
