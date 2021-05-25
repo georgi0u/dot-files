@@ -57,7 +57,7 @@ function get_prompt() {
         virtual_env='%F{1}vEnv%f '
     fi
 
-    echo "$hostname ${virtual_env}$vcs_info%f$current_directory \n$prompt ";
+    echo "$hostname ${virtual_env}$vcs_info%f$current_directory %*\n$prompt ";
 
     cd .
 }
