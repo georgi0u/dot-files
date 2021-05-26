@@ -28,7 +28,7 @@ alias wls="watch -n.2 ls"
 alias wll="watch -n.2 ls -l"
 alias ssh="ssh -q"
 alias tm="tmux -u"
-alias ta="tmux -u attach -d -t _scratch || tmux -u new-session -s _scratch"
+alias ta="tmux -u attach"
 alias curl="curl --silent"
 
 # Prompt Stuff
