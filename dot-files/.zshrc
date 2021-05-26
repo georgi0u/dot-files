@@ -46,7 +46,9 @@ function get_vcs_info() {
 }
 function get_dir_info() { echo '%d' }
 function get_prompt() {
-    hostname=`get_box_level_color``get_hostname`'%f'
+  if [[ -z $TMUX ]]; then
+    hostname=`get_box_level_color``get_hostname`'%f '
+  fi
     vcs_info=`get_vcs_info`
     current_directory=`get_dir_level_color``get_dir_info`'%f'
     prompt='%(1j.%F{5}%j.⤷)%f'
@@ -57,7 +59,7 @@ function get_prompt() {
         virtual_env='%F{1}vEnv%f '
     fi
 
-    echo "$hostname ${virtual_env}$vcs_info%f$current_directory %*\n$prompt ";
+    echo "$hostname${virtual_env}$vcs_info%f$current_directory %*\n$prompt ";
 
     cd .
 }
