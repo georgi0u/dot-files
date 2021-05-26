@@ -51,7 +51,7 @@ function get_prompt() {
   fi
     vcs_info=`get_vcs_info`
     current_directory=`get_dir_level_color``get_dir_info`'%f'
-    prompt='%(1j.%F{5}%j.⤷)%f'
+    prompt='%(1j.%F{5}%j.→)%f'
 
     if [ -z "$VIRTUAL_ENV" ]; then
         virtual_env=''
