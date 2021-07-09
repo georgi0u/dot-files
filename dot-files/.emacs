@@ -119,6 +119,7 @@
 
 ;; If I open the buffer menu, bring the cursor
 (global-set-key "\C-xb" 'buffer-menu-other-window)
+(global-set-key "\C-x\C-b" 'buffer-menu-other-window)
 
 ;; Stop C-[ (i.e. escape) from closing buffers 
 (global-unset-key "")
