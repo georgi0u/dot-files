@@ -196,3 +196,4 @@ precmd () { PS1=$(get_prompt) }
 autoload -U promptinit
 promptinit
 
+export PATH="/usr/local/opt/node@14/bin:$PATH"
