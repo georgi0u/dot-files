@@ -3,6 +3,7 @@
 (quietly-read-abbrev-file)
 
 (require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;; Added by Package.el.  This must come before configurations of
@@ -63,7 +64,8 @@
  '(js2-bounce-indent-p t)
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
- '(package-selected-packages '(color-theme-sanityinc-tomorrow solarized-theme tide))
+ '(package-selected-packages
+   '(color-theme-sanityinc-solarized color-theme-sanityinc-tomorrow solarized-theme tide))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(safe-local-variable-values
    '((c-file-offsets
