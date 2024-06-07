@@ -4,12 +4,13 @@ if [[ -z "$PS1" ]]; then
 fi
 
 # Short command aliases
+## Emacs
 alias e="emacsclient -t -nw"
 alias emacs="emacs -nw"
 alias eamcs="emacs -nw"
 alias emac="emacs -nw"
 alias eamc="emacs -nw"
-alias untar="tar xfz"
+## ls
 alias base_ls="ls -G --group-directories-first --sort=extension"
 alias ls="base_ls"
 alias s="ls"
@@ -20,31 +21,33 @@ alias la="ls -hal"
 alias al="ls -hal"
 alias ll="ls -lh"
 alias l="ls -lh"
-alias scd="cd"
+## cd
 alias cd..="cd .."
 alias ..="cd .."
+## Misc
+alias untar="tar xfz"
 alias tailf="tail --follow --sleep-interval=.5" 
-alias wls="watch -n.2 ls"
-alias wll="watch -n.2 ls -l"
 alias ssh="ssh -q"
 alias tm="tmux -u"
 alias ta="tmux -u attach"
-alias curl="curl --silent"
+alias g="git"
+alias gl="git log --name-only"
+
 
 # Prompt Stuff
 setopt prompt_subst
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' actionformats '%F{155}%r%f:%F{155}%b%f %F{139}%a%f '
-zstyle ':vcs_info:*' formats '%F{155}%r%f:%F{155}%b%f '
+zstyle ':vcs_info:*' formats '%F{155}%b%f:'
 zstyle ':vcs_info:*' enable git p4 hg
 function get_box_level_color() { echo '%F{220}' }
-function get_dir_level_color() { echo '%F{12}' }
+function get_dir_level_color() { echo '%F{14}' }
 function get_hostname() { echo '%M' }
 function get_vcs_info() { 
   vcs_info
   echo "${vcs_info_msg_0_}"
 }
-function get_dir_info() { echo '%d' }
+function get_dir_infoboo() { echo '%d' }
 function get_prompt() {
   if [[ -z $TMUX ]]; then
     hostname=`get_box_level_color``get_hostname`'%f '
@@ -59,7 +62,7 @@ function get_prompt() {
         virtual_env='%F{1}vEnv%f '
     fi
 
-    echo "$hostname${virtual_env}$vcs_info%f$current_directory %*\n$prompt ";
+    echo "$hostname${virtual_env}$vcs_info$current_directory\n$prompt ";
 
     cd .
 }
