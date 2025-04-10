@@ -32,7 +32,7 @@ alias tm="tmux -u"
 alias ta="tmux -u attach"
 # git
 alias g="git"
-alias g="gi"
+alias gi="git"
 alias gl="git log --name-only --graph"
 alias gs="git status"
 alias gd="git diff"
