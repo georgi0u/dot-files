@@ -1,0 +1,21 @@
+[user]
+	name = Adam Georgiou
+	email = me@adamgeorgiou.com
+[push]
+	autoSetupRemote = true
+[alias]
+	ch = checkout
+	rbi = rebase -i HEAD~25
+	co = commit
+	b = branch -vvv
+	a = add
+	ad = add
+	s = status
+	st = status
+	l = log --name-only --graph
+	d = diff
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

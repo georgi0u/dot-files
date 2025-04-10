@@ -30,8 +30,14 @@ alias tailf="tail --follow --sleep-interval=.5"
 alias ssh="ssh -q"
 alias tm="tmux -u"
 alias ta="tmux -u attach"
+# git
 alias g="git"
-alias gl="git log --name-only"
+alias g="gi"
+alias gl="git log --name-only --graph"
+alias gs="git status"
+alias gd="git diff"
+alias ga="git add"
+alias gb="git branch -vvv"
 
 
 # Prompt Stuff
@@ -200,3 +206,9 @@ autoload -U promptinit
 promptinit
 
 export PATH="/usr/local/opt/node@14/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/adamgeorgiou/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/adamgeorgiou/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/adamgeorgiou/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/adamgeorgiou/google-cloud-sdk/completion.zsh.inc'; fi
