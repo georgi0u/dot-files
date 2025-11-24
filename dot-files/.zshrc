@@ -5,11 +5,17 @@ fi
 
 # Short command aliases
 ## Emacs
-alias e="emacsclient -t -nw"
-alias emacs="emacs -nw"
-alias eamcs="emacs -nw"
-alias emac="emacs -nw"
-alias eamc="emacs -nw"
+function start_emacs_daemon_if_needed() {
+    # -t: open in terminal (implies -nw)
+    # -a "": alternate editor (empty string means start daemon if not running)
+    emacsclient -t -a "" "$@"
+}
+
+alias e="start_emacs_daemon_if_needed"
+alias emacs="start_emacs_daemon_if_needed"
+alias eamcs="start_emacs_daemon_if_needed"
+alias emac="start_emacs_daemon_if_needed"
+alias eamc="start_emacs_daemon_if_needed"
 ## ls
 alias base_ls="ls -G --group-directories-first --sort=extension"
 alias ls="base_ls"
@@ -53,7 +59,7 @@ function get_vcs_info() {
   vcs_info
   echo "${vcs_info_msg_0_}"
 }
-function get_dir_infoboo() { echo '%d' }
+function get_dir_info() { echo '%d' }
 function get_prompt() {
   if [[ -z $TMUX ]]; then
     hostname=`get_box_level_color``get_hostname`'%f '
@@ -89,7 +95,8 @@ export VISUAL=$EDITOR
 [[ $EMACS = t ]] && unsetopt zle
 
 # Zsh settings for history
-export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
+export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd..:make deploy:commit"
+export HISTORY_IGNORE="(&|ls|bg|fg|exit|reset|clear|cd|cd ..|cd..|make deploy|commit)"
 export HISTSIZE=25000
 export HISTFILE=~/.zsh_history
 export SAVEHIST=10000
@@ -166,8 +173,8 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # Get del key back
-bindkey    "^[[3~"          delete-char
-bindkey    "^[3;5~"         delete-char
+bindkey    "^[[3~"          delete-char;
+bindkey    "^[3;5~"         delete-char;
 
 # Color'd MAN output
 man() {
@@ -205,6 +212,7 @@ precmd () { PS1=$(get_prompt) }
 autoload -U promptinit
 promptinit
 
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/opt/node@14/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -212,3 +220,4 @@ if [ -f '/Users/adamgeorgiou/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ad
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/adamgeorgiou/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/adamgeorgiou/google-cloud-sdk/completion.zsh.inc'; fi
+

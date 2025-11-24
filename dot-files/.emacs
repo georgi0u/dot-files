@@ -3,16 +3,23 @@
 (quietly-read-abbrev-file)
 
 (require 'package)
-;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+;; Ensure packages are installed
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Variable Customizations
+(custom-set-variables
+ '(package-selected-packages
+   '(## color-theme-sanityinc-solarized color-theme-sanityinc-tomorrow
+	dart-mode go-mode solarized-theme typescript-mode zen-mode)))
+(package-install-selected-packages)
+
+(load-theme 'sanityinc-tomorrow-night t)
+
 (add-to-list `load-path "~/.emacs.d/lisp")
-;; (byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
 
 (when (>= emacs-major-version 24)
   (add-to-list `custom-theme-load-path "~/.emacs.d/themes/"))
@@ -24,26 +31,6 @@
 (when (>= emacs-major-version 24)
   (load "less-css-mode"))
 
-;; ;; Variable Customizations
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(sanityinc-tomorrow-night))
- '(custom-safe-themes
-   '("a547c442bab67ad5f726c15696464e0250d83428a1d82c09f4300ae9cf041621"
-     "fee7287586b17efbfda432f05539b58e86e059e78006ce9237b8732fde991b4c"
-     "d89e15a34261019eec9072575d8a924185c27d3da64899905f8548cbd9491a36"
-     "f5b6be56c9de9fd8bdd42e0c05fecb002dedb8f48a5f00e769370e4517dde0e8"
-     "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58"
-     "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a"
-     "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4"
-     "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328"
-     default))
- '(package-selected-packages
-   '(## color-theme-sanityinc-solarized color-theme-sanityinc-tomorrow
-	dart-mode go-mode solarized-theme typescript-mode zen-mode)))
 
 ;; No scratch message
 (setq initial-scratch-message "")
@@ -223,5 +210,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-(require 'handlebars-mode)

@@ -10,7 +10,7 @@
 	b = branch -vvv
 	a = add
 	ad = add
-	s = status
+	s = status -s
 	st = status
 	l = log --name-only --graph
 	d = diff
@@ -19,3 +19,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[diff]
+	noprefix = true
+	minimal = true
