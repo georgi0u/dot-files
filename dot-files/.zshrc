@@ -17,7 +17,7 @@ alias eamcs="start_emacs_daemon_if_needed"
 alias emac="start_emacs_daemon_if_needed"
 alias eamc="start_emacs_daemon_if_needed"
 ## ls
-alias base_ls="ls -G --group-directories-first --sort=extension"
+alias base_ls="ls -G"
 alias ls="base_ls"
 alias s="ls"
 alias sl="ls"
