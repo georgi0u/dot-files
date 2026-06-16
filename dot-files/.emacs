@@ -17,12 +17,36 @@
 	dart-mode go-mode solarized-theme typescript-mode zen-mode)))
 (package-install-selected-packages)
 
-(load-theme 'sanityinc-tomorrow-night t)
+(defun georgiou-os-light-mode-p ()
+  "Return non-nil when the underlying OS is using a light theme."
+  (and (eq system-type 'darwin)
+       (not (string-match-p
+             "Dark"
+             (shell-command-to-string
+              "defaults read -g AppleInterfaceStyle 2>/dev/null")))))
+
+(defvar georgiou-current-theme nil)
+
+(defun georgiou-apply-os-theme ()
+  "Apply the Emacs theme matching the underlying OS theme."
+  (let ((theme (if (georgiou-os-light-mode-p)
+                   'solarized-light
+                 'sanityinc-tomorrow-night)))
+    (unless (eq theme georgiou-current-theme)
+      (mapc #'disable-theme custom-enabled-themes)
+      (load-theme theme t)
+      (setq georgiou-current-theme theme))))
+
+(georgiou-apply-os-theme)
+(add-hook 'server-visit-hook 'georgiou-apply-os-theme)
 
 (add-to-list `load-path "~/.emacs.d/lisp")
 
 (when (>= emacs-major-version 24)
   (add-to-list `custom-theme-load-path "~/.emacs.d/themes/"))
+
+;; Do not prompt when opening symbolic links to version-controlled files.
+(setq vc-follow-symlinks t)
 
 ;; Local Emacs Stuff
 (when (file-exists-p "~/.local_emacs") (load "~/.local_emacs"))

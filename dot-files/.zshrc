@@ -68,13 +68,7 @@ function get_prompt() {
     current_directory=`get_dir_level_color``get_dir_info`'%f'
     prompt='%(1j.%F{5}%j.→)%f'
 
-    if [ -z "$VIRTUAL_ENV" ]; then
-        virtual_env=''
-    else
-        virtual_env='%F{1}vEnv%f '
-    fi
-
-    echo "$hostname${virtual_env}$vcs_info$current_directory\n$prompt ";
+    echo "$hostname$vcs_info$current_directory\n$prompt ";
 
     cd .
 }
@@ -202,6 +196,10 @@ stty -ixon -ixoff
 
 autoload -U zmv
 
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+
 # Local ZSH file
 LOCAL_OPTIONS=${HOME}"/.local_zshrc"
 if [[ -e $LOCAL_OPTIONS ]]; then source "$LOCAL_OPTIONS"; fi
@@ -211,13 +209,3 @@ PS1=$(get_prompt)
 precmd () { PS1=$(get_prompt) }
 autoload -U promptinit
 promptinit
-
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/usr/local/opt/node@14/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/adamgeorgiou/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/adamgeorgiou/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/adamgeorgiou/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/adamgeorgiou/google-cloud-sdk/completion.zsh.inc'; fi
-
