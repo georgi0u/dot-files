@@ -1,0 +1,80 @@
+{
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off"
+    },
+    "[html]": {
+        "editor.rulers": []
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[markdown]": {
+        "editor.rulers": []
+    },
+    "[typescript]": {},
+    "[typescriptreact]": {},
+    "[javascript][typescript][typescriptreact]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "azureTerraform.survey": {
+        "surveyPromptDate": "2026-06-29T21:34:30.738Z",
+        "surveyPromptIgnoredCount": 1
+    },
+    "cSpell.userWords": [
+        "cardworkout",
+        "deckofcardio",
+        "Georgiou",
+        "Permissioned",
+        "permissioning",
+        "Rensselaer"
+    ],
+    "chatgpt.composerEnterBehavior": "cmdIfMultiline",
+    "clangd.arguments": [
+        "--compile-commands-dir=build"
+    ],
+    "claudeCode.preferredLocation": "panel",
+    "editor.accessibilitySupport": "off",
+    "editor.codeActionsOnSave": {
+        "source.removeUnusedImports": "explicit"
+    },
+    "editor.fontFamily": "'Monaspace Neon', monospace",
+    "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
+    "editor.inlineSuggest.fontFamily": "'Monaspace Krypton', monospace",
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        100
+    ],
+    "editor.stickyScroll.maxLineCount": 8,
+    "editor.suggest.showStatusBar": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "git.openRepositoryInParentFolders": "always",
+    "github.copilot.nextEditSuggestions.eagerness": "auto",
+    "go.testFlags": [
+        "-count=1"
+    ],
+    "go.testTimeout": "30s",
+    "js/ts.tsserver.experimental.enableProjectDiagnostics": false,
+    "js/ts.tsserver.log": "verbose",
+    "python.analysis.logLevel": "Information",
+    "python.analysis.nodeExecutable": "node",
+    "python.analysis.typeCheckingMode": "basic",
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.stickyScroll.enabled": false,
+    "window.autoDetectColorScheme": true,
+    "window.commandCenter": true,
+    "workbench.activityBar.location": "top",
+    "workbench.colorCustomizations": {},
+    "workbench.preferredDarkColorTheme": "Dark Modern",
+    "workbench.preferredLightColorTheme": "Light Modern",
+    "workbench.startupEditor": "none",
+    "zenMode.fullScreen": false,
+    "python.defaultInterpreterPath": "/Users/georgiou/.virtualenvs/openai"
+}

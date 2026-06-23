@@ -50,11 +50,17 @@ alias gb="git branch -vvv"
 setopt prompt_subst
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' actionformats '%F{155}%r%f:%F{155}%b%f %F{139}%a%f '
-zstyle ':vcs_info:*' formats '%F{155}%b%f:'
+zstyle ':vcs_info:*' formats '%F{35}%b%f:'
 zstyle ':vcs_info:*' enable git p4 hg
 function get_box_level_color() { echo '%F{220}' }
 function get_dir_level_color() { echo '%F{14}' }
-function get_hostname() { echo '%M' }
+function get_hostname() {
+  if [[ -f ~/.hostname_alias ]]; then
+    cat ~/.hostname_alias
+  else
+    hostname
+  fi
+}
 function get_vcs_info() { 
   vcs_info
   echo "${vcs_info_msg_0_}"

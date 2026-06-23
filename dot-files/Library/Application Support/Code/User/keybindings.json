@@ -1,0 +1,80 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "ctrl+alt+p",
+    "command": "cursorMove",
+    "args": { "to": "up", "by": "line", "value": 5 },
+    "when": "editorTextFocus && !emacs-mcx.inMarkMode",
+  },
+  {
+    "key": "ctrl+alt+p",
+    "command": "cursorMove",
+    "args": { "to": "up", "by": "line", "value": 5, "select": true },
+    "when": "editorTextFocus && emacs-mcx.inMarkMode",
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "cursorMove",
+    "args": { "to": "down", "by": "line", "value": 5 },
+    "when": "editorTextFocus && !emacs-mcx.inMarkMode",
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "cursorMove",
+    "args": { "to": "down", "by": "line", "value": 5, "select": true },
+    "when": "editorTextFocus && emacs-mcx.inMarkMode",
+  },
+
+  {
+    "key": "ctrl+x [",
+    "command": "cursorTop",
+    "when": "editorTextFocus && !emacs-mcx.inMarkMode",
+  },
+  {
+    "key": "ctrl+x [",
+    "command": "cursorTopSelect",
+    "when": "editorTextFocus && emacs-mcx.inMarkMode",
+  },
+
+  {
+    "key": "ctrl+x ]",
+    "command": "cursorBottom",
+    "when": "editorTextFocus && !emacs-mcx.inMarkMode",
+  },
+  {
+    "key": "ctrl+x ]",
+    "command": "cursorBottomSelect",
+    "when": "editorTextFocus && emacs-mcx.inMarkMode",
+  },
+  {
+    "key": "ctrl+x g",
+    "command": "emacs-mcx.gotoLine",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-emacs-mcx.isearchBackward",
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.openRecent",
+  },
+  {
+    "key": "ctrl+r",
+    "command": "workbench.action.openRecent",
+    "when": "activeEditorGroupEmpty && !findInputFocussed",
+  },
+  {
+    "key": "ctrl+r",
+    "command": "emacs-mcx.isearchBackward",
+    "when": "!activeEditorGroupEmpty && editorFocus && !findInputFocussed",
+  },
+  {
+    "key": "ctrl+x ctrl+c",
+    "command": "-workbench.action.closeWindow",
+  },
+  {
+    "key": "ctrl+x ctrl+c",
+    "command": "workbench.action.closeAllEditors",
+  },
+]

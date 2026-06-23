@@ -4,6 +4,27 @@ import os, shutil, sys
 
 DOT_FILES_DIRECTORY = 'dot-files'
 COPY_FILES = set(['.gitconfig'])
+LINK_TARGETS = [
+    ('.emacs', '.emacs'),
+    ('.emacs.d', '.emacs.d'),
+    ('.gitconfig', '.gitconfig'),
+    ('.gitignore', '.gitignore'),
+    ('.inputrc', '.inputrc'),
+    ('.tmux.conf', '.tmux.conf'),
+    ('.zshrc', '.zshrc'),
+    (
+        'Library/Application Support/com.mitchellh.ghostty/config.ghostty',
+        'Library/Application Support/com.mitchellh.ghostty/config.ghostty',
+    ),
+    (
+        'Library/Application Support/Code/User/settings.json',
+        'Library/Application Support/Code/User/settings.json',
+    ),
+    (
+        'Library/Application Support/Code/User/keybindings.json',
+        'Library/Application Support/Code/User/keybindings.json',
+    ),
+]
 
 def fail_if_exists(path):
     if os.path.lexists(path):
@@ -17,16 +38,20 @@ def main():
     dot_files_dir = os.path.join(script_dir, DOT_FILES_DIRECTORY)
     links = []
 
-    for element in os.listdir(dot_files_dir):
-        link_name = os.path.join(user_home_dir, element)
-        source = os.path.join(dot_files_dir, element)
-        links.append((element, source, link_name))
+    for source_name, target_name in LINK_TARGETS:
+        link_name = os.path.join(user_home_dir, target_name)
+        source = os.path.join(dot_files_dir, source_name)
+        links.append((source_name, source, link_name))
 
     if any(fail_if_exists(link_name) for _, _, link_name in links):
         return os.EX_CANTCREAT
 
-    for element, source, link_name in links:
-        if element in COPY_FILES:
+    for source_name, source, link_name in links:
+        parent_dir = os.path.dirname(link_name)
+        if not os.path.isdir(parent_dir):
+            os.makedirs(parent_dir)
+
+        if source_name in COPY_FILES:
             shutil.copy2(source, link_name)
         else:
             os.symlink(source, link_name)
