@@ -1,4 +1,6 @@
-theme=dark:niji,light:Coffee Theme
+cursor-color=cell-foreground
+window-decoration = none
+theme=dark:niji,light:Flexoki Light
 copy-on-select=clipboard
 clipboard-read=allow
 clipboard-write=allow
